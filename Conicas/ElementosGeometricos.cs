@@ -8,6 +8,7 @@ namespace Conicas
 {
     class ElementosGeometricos
     {
+        // hey
         string nomeConica;
         string[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
 
