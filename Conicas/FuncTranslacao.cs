@@ -8,5 +8,9 @@ namespace Conicas
 {
     class FuncTranslacao
     {
+        private double h;
+        private double k;
+        
+        
     }
 }
