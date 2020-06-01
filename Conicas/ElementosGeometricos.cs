@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,28 +20,35 @@ namespace Conicas
 
         void chamaElementos(string nomeConica)
         {
-            if(nomeConica=="conjunto vazio")
+            if (nomeConica == "conjunto vazio")
             {
 
-            }else if(nomeConica=="duas retas identicas")
-            {
-                
-            }else if(nomeConica=="duas retas concorrente")
+            }
+            else if (nomeConica == "duas retas identicas")
             {
 
-            }else if(nomeConica=="duas paralelas")
+            }
+            else if (nomeConica == "duas retas concorrente")
             {
 
-            }else if (nomeConica == "circulo")
+            }
+            else if (nomeConica == "duas paralelas")
             {
 
-            }else if (nomeConica == "elipse")
+            }
+            else if (nomeConica == "circulo")
             {
 
-            }else if (nomeConica == "hiperbole")
+            }
+            else if (nomeConica == "elipse")
             {
 
-            }else if(nomeConica=="parabola")
+            }
+            else if (nomeConica == "hiperbole")
+            {
+
+            }
+            else if (nomeConica == "parabola")
         }
 
 
