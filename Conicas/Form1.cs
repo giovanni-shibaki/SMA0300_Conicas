@@ -10,11 +10,10 @@ using System.Windows.Forms;
 
 namespace Conicas
 {
-    public partial class MainMenu : Form
+    public partial class MainMenu : Form 
     {
-        // Batatinhas
         double a, b, c, d, e, f;
-
+        // meu chapa
         public MainMenu()
         {
             InitializeComponent();

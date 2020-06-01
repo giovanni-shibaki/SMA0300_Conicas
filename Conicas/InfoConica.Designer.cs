@@ -54,7 +54,7 @@
         }
 
         #endregion
-
+        //  teste
         private System.Windows.Forms.Label tipoConica;
     }
 }

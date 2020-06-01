@@ -167,7 +167,7 @@
             // 
             // btnCalcula
             // 
-            this.btnCalcula.Location = new System.Drawing.Point(420, 342);
+            this.btnCalcula.Location = new System.Drawing.Point(430, 343);
             this.btnCalcula.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(123, 49);
