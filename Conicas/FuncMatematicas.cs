@@ -58,7 +58,10 @@ namespace Conicas
             return det;
         }
 
+        /*public Vector<double> gerarMatrizG2()
+        {
 
+        }*/
 
     }
 }
