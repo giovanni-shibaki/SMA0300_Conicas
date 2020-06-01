@@ -12,6 +12,7 @@ namespace Conicas
 {
     public partial class MainMenu : Form
     {
+        // Batatinhas
         double a, b, c, d, e, f;
 
         public MainMenu()
