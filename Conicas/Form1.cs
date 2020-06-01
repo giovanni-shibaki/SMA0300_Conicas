@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Conicas
 {
-    public partial class MainMenu : Form
+    public partial class MainMenu : Form 
     {
         double a, b, c, d, e, f;
-
+        // coeficientes
         public MainMenu()
         {
             InitializeComponent();
