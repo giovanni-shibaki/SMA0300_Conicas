@@ -8,9 +8,5 @@ namespace Conicas
 {
     class ElementosGeometricos
     {
-        /*
-            Para cada conica, vamos imprimir informacoes especificas sobre cada uma. Exemplo: se recebermos elipse e seus coeficientes,
-            informaremos excentricidade, focos, centro....
-        */
     }
 }

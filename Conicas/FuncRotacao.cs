@@ -8,8 +8,5 @@ namespace Conicas
 {
     class FuncRotacao
     {
-        /*
-            Funcoes pertinentes ao procedimento de rotacao de uma conica
-        */
     }
 }
