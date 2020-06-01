@@ -36,7 +36,6 @@ namespace Conicas
             FuncMatematicas funcmat = new FuncMatematicas();
         }
 
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
