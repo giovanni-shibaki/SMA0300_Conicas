@@ -13,7 +13,7 @@ namespace Conicas
     public partial class MainMenu : Form 
     {
         double a, b, c, d, e, f;
-        // coeficientes
+        // meu chapa
         public MainMenu()
         {
             InitializeComponent();
