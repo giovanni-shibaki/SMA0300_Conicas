@@ -8,5 +8,9 @@ namespace Conicas
 {
     class ElementosGeometricos
     {
+        /*
+            Vamos exibir os elementos geometricos de cada conica
+         
+         */
     }
 }

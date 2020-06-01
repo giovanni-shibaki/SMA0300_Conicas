@@ -12,32 +12,40 @@ namespace Conicas
 {
     public partial class MainMenu : Form
     {
+        double a, b, c, d, e, f;
+
         public MainMenu()
         {
             InitializeComponent();
-
-            double a = Convert.ToDouble(txtA.Text);
-            double b = Convert.ToDouble(txtB.Text);
-            double c = Convert.ToDouble(txtC.Text);
-
-
-            FuncMatematicas mat = new FuncMatematicas();
-            lblEquacao.Text =mat.AddTwoNumbers(3, 3).ToString();
         }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void btnCalcula_Click(object sender, EventArgs eventArgs)
         {
-
+            try
+            {
+                a = double.Parse(txtA.Text);
+                b = double.Parse(txtB.Text);
+                c = double.Parse(txtC.Text);
+                d = double.Parse(txtD.Text);
+                e = double.Parse(txtE.Text);
+                f = double.Parse(txtF.Text);
+            }
+            catch (System.FormatException a)
+            {
+                MessageBox.Show("Erro ao processar os campos!\nMais detalhes: " + a);
+            }
+            FuncMatematicas funcmat = new FuncMatematicas();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+
+        private void btnSair_Click(object sender, EventArgs e)
         {
-
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Deseja mesmo sair?", "Projeto Cônicas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
-        private void btnCalcula_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
