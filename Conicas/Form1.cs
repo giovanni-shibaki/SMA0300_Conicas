@@ -14,11 +14,13 @@ namespace Conicas
     {
         public MainMenu()
         {
-            double a= Convert.ToDouble(txtA.Text);
-            double b= Convert.ToDouble(txtB.Text);
-            double c= Convert.ToDouble(txtC.Text);
-
             InitializeComponent();
+
+            double a = Convert.ToDouble(txtA.Text);
+            double b = Convert.ToDouble(txtB.Text);
+            double c = Convert.ToDouble(txtC.Text);
+
+
             FuncMatematicas mat = new FuncMatematicas();
             lblEquacao.Text =mat.AddTwoNumbers(3, 3).ToString();
         }
