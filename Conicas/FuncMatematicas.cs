@@ -35,7 +35,7 @@ namespace Conicas
             return number1 + number2;
         }
 
-        public void gerarMatrizG(double a, double b, double c, double d, double e, double f)
+        public void calculaH_K(double a, double b, double c, double d, double e, double f)
         {
             MessageBox.Show((a-b).ToString());
             var A = Matrix<double>.Build.DenseOfArray(new double[,]
@@ -62,7 +62,7 @@ namespace Conicas
             return det;
         }
 
-        public Vector<double> gerarG2(double a, double b, double c, double d, double e, double f)
+        public Vector<double> gerarEquacaoG2(double a, double b, double c, double d, double e, double f) // Gera a equação G2 com u e v conforme pag 90 das notas de aula de GA
         {
             var B = Vector<double>.Build.Dense(new double[] { a, b, c, (d*this.h)/2, (e*this.k)/2, f });
             // Função G2 do tipo a.u^2 + b.u.v + c.v^2 + dh/2 + ek/2 + f ---> Conforme Notas de Aula pag 90
