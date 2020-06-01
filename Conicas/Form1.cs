@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Conicas
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
