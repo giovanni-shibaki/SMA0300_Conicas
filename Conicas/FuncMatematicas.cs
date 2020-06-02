@@ -92,6 +92,8 @@ namespace Conicas
             var s = Expr.Variable("s");
             var t = Expr.Variable("t");
             MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+            // Agora simplificar a equação
+            Expr.Parse("").ToLaTeX();
         }
 
     }
