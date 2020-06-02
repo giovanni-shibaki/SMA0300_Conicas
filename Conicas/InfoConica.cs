@@ -18,16 +18,29 @@ namespace Conicas
      */
     public partial class InfoConica : MaterialForm
     {
+        enum Conicas
+        {
+            ConjuntoVazio,
+            DuasRetasIdenticas,
+            DuasRetasConcorrentes,
+            DuasParalela,
+            DuasParalelas,
+            Circulo,
+            Elipse,
+            Hiperbole,
+            Parabola
+        }
         ElementosGeometricos elementos;
-        public InfoConica(string nomeConica, double[] coeficientes)
+        public InfoConica(int idConica, double[] coeficientes)
         {
             InitializeComponent();
-            elementos = new ElementosGeometricos(nomeConica, coeficientes);
+            elementos = new ElementosGeometricos(idConica, coeficientes);
+            ShowDetails(idConica, coeficientes);
         }
 
-        void ShowDetails()
+        void ShowDetails(int idConica, double[] coeficientes)
         {
-
+            lblDetalhes.Text = elementos.DetalhesConicas(idConica,coeficientes);
         }
 
         private void InfoConica_FormClosing(object sender, FormClosingEventArgs e)
