@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using MathNet.Numerics;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Complex;
+using MathNet.Symbolics;
+using Expr = MathNet.Symbolics.SymbolicExpression;
 
 namespace Conicas
 {
@@ -71,17 +73,25 @@ namespace Conicas
 
         public void calculaAlCl(Vector<double> g2)
         {
-            var A = Matrix<double>.Build.DenseOfArray(new double[,]
-            {
+            var A = Matrix<double>.Build.DenseOfArray(new double[,]{
                 { 1/* a' */, 1/* c' */ },
                 { 1/* a' */, -1/* -c' */ },
             });
             MessageBox.Show(A.ToString());
-            var B = Vector<double>.Build.Dense(new double[] { (g2[0]+g2[1]), /* g2[0] = termo a de g2;  g2[2] = termo c de g2*/(g2[1]*Math.Sqrt(1 + Math.Pow( ( (g2[0]-g2[2])/g2[1]),2) ) ) });
+            MessageBox.Show((g2[0] + g2[2]).ToString());
+            MessageBox.Show((g2[1] * Math.Sqrt(1 + Math.Pow(((g2[0] - g2[2]) / g2[1]), 2))).ToString());
+            var B = Vector<double>.Build.Dense(new double[] { Convert.ToDouble(g2[0]+g2[2]), /* g2[0] = termo a de g2;  g2[2] = termo c de g2*/Convert.ToDouble(g2[1]*Math.Sqrt(1 + Math.Pow( ( (g2[0]-g2[2])/g2[1]),2) ) ) });
             var x = A.Solve(B);
             MessageBox.Show("a'  e  c' : "+x.ToString());
             aL = x[0];
             cL = x[1];
+        }
+
+        public void mostraNovaEquacao()
+        {
+            var s = Expr.Variable("s");
+            var t = Expr.Variable("t");
+            MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
         }
 
     }
