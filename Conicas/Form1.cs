@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace Conicas
 {
-    public partial class MainMenu : Form 
+    public partial class MainMenu : MaterialForm
     {
-        double a, b, c, d, e, f;
-        // meu chapa
+        double[] coeficientes = new double[6];
         public MainMenu()
         {
             InitializeComponent();
@@ -22,18 +23,20 @@ namespace Conicas
         {
             try
             {
-                a = double.Parse(txtA.Text);
-                b = double.Parse(txtB.Text);
-                c = double.Parse(txtC.Text);
-                d = double.Parse(txtD.Text);
-                e = double.Parse(txtE.Text);
-                f = double.Parse(txtF.Text);
+                coeficientes[0] = double.Parse(txtA.Text);
+                coeficientes[1] = double.Parse(txtB.Text);
+                coeficientes[2] = double.Parse(txtC.Text);
+                coeficientes[3] = double.Parse(txtD.Text);
+                coeficientes[4] = double.Parse(txtE.Text);
+                coeficientes[5] = double.Parse(txtF.Text);
             }
             catch (System.FormatException a)
             {
                 MessageBox.Show("Erro ao processar os campos!\nMais detalhes: " + a);
             }
             FuncMatematicas funcmat = new FuncMatematicas();
+            // InfoConica info = new InfoConica(nomeConica,coeficientes);
+            // Infoconica.show();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

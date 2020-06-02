@@ -10,16 +10,16 @@ namespace Conicas
     {
         // meu kakaka
         string nomeConica;
-        string[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
+        double[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
 
-        public ElementosGeometricos(string nomeConica, string[] coeficientes)
+        public ElementosGeometricos(string nomeConica, double[] coeficientes)
         {
             this.coeficientes = coeficientes;
             this.nomeConica = nomeConica;
             chamaElementos(nomeConica,coeficientes);
         }
 
-        void chamaElementos(string nomeConica,string[] coeficientes)
+        void chamaElementos(string nomeConica,double[] coeficientes)
         {
             if(nomeConica=="conjunto vazio")
             {
@@ -42,7 +42,10 @@ namespace Conicas
             }else if (nomeConica == "hiperbole")
             {
 
-            }else if(nomeConica=="parabola")
+            }else if (nomeConica == "parabola")
+            {
+
+            }
         }
 
 

@@ -28,33 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tipoConica = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // tipoConica
-            // 
-            this.tipoConica.AutoSize = true;
-            this.tipoConica.Location = new System.Drawing.Point(12, 27);
-            this.tipoConica.Name = "tipoConica";
-            this.tipoConica.Size = new System.Drawing.Size(107, 17);
-            this.tipoConica.TabIndex = 0;
-            this.tipoConica.Text = "Tipo de Cônica:";
             // 
             // InfoConica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 398);
-            this.Controls.Add(this.tipoConica);
             this.Name = "InfoConica";
             this.Text = "Informações Adicionais Sobre a Cônica";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        //  teste
-        private System.Windows.Forms.Label tipoConica;
     }
 }

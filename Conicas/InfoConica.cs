@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace Conicas
 {
@@ -14,11 +16,19 @@ namespace Conicas
         Aqui vamos mostrar as informacoes retornadas pela clase Elementos Geometricos
         
      */
-    public partial class InfoConica : Form
+    public partial class InfoConica : MaterialForm
     {
-        public InfoConica()
+        ElementosGeometricos elementos;
+        public InfoConica(string nomeConica, double []coeficientes)
         {
             InitializeComponent();
+            elementos = new ElementosGeometricos(nomeConica, coeficientes);
         }
+
+        void ShowDetails()
+        {
+            
+        }
+        
     }
 }
