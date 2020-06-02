@@ -30,6 +30,7 @@ namespace Conicas
             Hiperbole,
             Parabola
         }
+
         ElementosGeometricos elementos;
         public InfoConica(int idConica, double[] coeficientes)
         {
@@ -38,11 +39,41 @@ namespace Conicas
             ShowDetails(idConica, coeficientes);
         }
 
+        #region Metodos
         void ShowDetails(int idConica, double[] coeficientes)
         {
             lblDetalhes.Text = elementos.DetalhesConicas(idConica,coeficientes);
+            lblClassificacao.Text = ClassConicas(idConica);
         }
 
+        private string ClassConicas(int idConica)
+        {
+            switch (idConica)
+            {
+                case 0:
+                    return "Conjunto Vazio";
+                case 1:
+                    return "Ponto";
+                case 2:
+                    return "Duas Retas Idênticas";
+                case 3:
+                    return "Duas Retas Paralelas";
+                case 4:
+                    return "Duas Retas Concorrentes";
+                case 5:
+                    return "Círculo";
+                case 6:
+                    return "Elipse";
+                case 7:
+                    return "Hipérbole";
+                case 8:
+                    return "Parábola";
+            }
+            return "Erro";
+        }
+        #endregion
+
+        #region Eventos
         private void InfoConica_FormClosing(object sender, FormClosingEventArgs e)
         {
             var res = MessageBox.Show(this, "Deseja Realmente Sair?", "Sair",
@@ -53,5 +84,6 @@ namespace Conicas
                 return;
             }
         }
+        #endregion
     }
 }

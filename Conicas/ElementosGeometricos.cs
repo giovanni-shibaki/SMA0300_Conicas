@@ -98,7 +98,9 @@ namespace Conicas
 
         private string DetalhesPonto(double[] coeficientes)
         {
-            throw new NotImplementedException();
+            int X=0,Y=0;
+            string detalhes = "P("+X+","+Y+")";
+            return detalhes;
         }
 
         private string DetalhesRetIdentica(double[] coeficientes)
