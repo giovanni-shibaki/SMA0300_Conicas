@@ -19,7 +19,7 @@ namespace Conicas
     public partial class InfoConica : MaterialForm
     {
         ElementosGeometricos elementos;
-        public InfoConica(string nomeConica, double []coeficientes)
+        public InfoConica(string nomeConica, double[] coeficientes)
         {
             InitializeComponent();
             elementos = new ElementosGeometricos(nomeConica, coeficientes);
@@ -27,8 +27,18 @@ namespace Conicas
 
         void ShowDetails()
         {
-            
+
         }
-        
+
+        private void InfoConica_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show(this, "Deseja Realmente Sair?", "Sair",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (res != DialogResult.Yes)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }

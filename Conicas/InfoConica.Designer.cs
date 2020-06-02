@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(686, 398);
             this.Name = "InfoConica";
             this.Text = "Informações Adicionais Sobre a Cônica";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InfoConica_FormClosing);
             this.ResumeLayout(false);
 
         }

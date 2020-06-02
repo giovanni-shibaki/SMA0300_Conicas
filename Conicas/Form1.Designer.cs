@@ -43,7 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCalcula = new System.Windows.Forms.Button();
             this.lblEquacao = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -186,27 +185,12 @@
             this.lblEquacao.TabIndex = 17;
             this.lblEquacao.Text = "Equação Atual:";
             // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.Red;
-            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(917, 71);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(47, 44);
-            this.btnSair.TabIndex = 16;
-            this.btnSair.Text = "X";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 418);
+            this.ClientSize = new System.Drawing.Size(961, 418);
             this.Controls.Add(this.lblEquacao);
-            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnCalcula);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtC);
@@ -224,6 +208,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,7 +231,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCalcula;
         private System.Windows.Forms.Label lblEquacao;
-        private System.Windows.Forms.Button btnSair;
     }
 }
 

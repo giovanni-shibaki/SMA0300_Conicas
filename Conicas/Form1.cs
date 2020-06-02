@@ -39,15 +39,15 @@ namespace Conicas
             // Infoconica.show();
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Deseja mesmo sair?", "Projeto Cônicas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            var res = MessageBox.Show(this, "Deseja Realmente Sair?", "Sair",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (res != DialogResult.Yes)
             {
-                Application.Exit();
+                e.Cancel = true;
+                return;
             }
         }
-
     }
 }
