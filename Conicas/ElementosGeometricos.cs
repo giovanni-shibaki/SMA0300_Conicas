@@ -8,46 +8,109 @@ namespace Conicas
 {
     class ElementosGeometricos
     {
+        enum Conicas
+        {
+            ConjuntoVazio,
+            Ponto,
+            DuasRetasIdenticas,
+            DuasRetasParalela,
+            DuasRetasConcorrentes,
+            Circulo,
+            Elipse,
+            Hiperbole,
+            Parabola
+        }
         // meu kakaka
-        string nomeConica;
+        int idConica;
         double[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
 
-        public ElementosGeometricos(string nomeConica, double[] coeficientes)
+        public ElementosGeometricos(int idConica, double[] coeficientes)
         {
             this.coeficientes = coeficientes;
-            this.nomeConica = nomeConica;
-            chamaElementos(nomeConica,coeficientes);
+            this.idConica = idConica;
         }
 
-        void chamaElementos(string nomeConica,double[] coeficientes)
+        public string DetalhesConicas(int idConica,double[] coeficientes)
         {
-            if(nomeConica=="conjunto vazio")
+            Conicas selection = (Conicas)idConica;
+            switch (selection)
             {
-                
-            }else if(nomeConica=="duas retas identicas")
-            {
-                
-            }else if(nomeConica=="duas retas concorrente")
-            {
+                case Conicas.ConjuntoVazio:
+                    return DetalhesConjVazio(coeficientes);
 
-            }else if(nomeConica=="duas paralelas")
-            {
+                case Conicas.Ponto:
+                    return DetalhesPonto(coeficientes);
 
-            }else if (nomeConica == "circulo")
-            {
+                case Conicas.DuasRetasIdenticas:
+                    return DetalhesRetIdentica(coeficientes);
 
-            }else if (nomeConica == "elipse")
-            {
+                case Conicas.DuasRetasParalela:
+                    return DetalhesRetParal(coeficientes);
 
-            }else if (nomeConica == "hiperbole")
-            {
+                case Conicas.DuasRetasConcorrentes:
+                    return DetalhesRetConc(coeficientes);
 
-            }else if (nomeConica == "parabola")
-            {
+                case Conicas.Circulo:
+                    return DetalhesCirc(coeficientes);
+
+                case Conicas.Elipse:
+                    return DetalhesElipse(coeficientes);
+
+                case Conicas.Hiperbole:
+                    return DetalhesHiperbole(coeficientes);
+
+                case Conicas.Parabola:
+                    return DetalhesParabol(coeficientes);
 
             }
+            return "Erro";
         }
 
+        private string DetalhesParabol(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesHiperbole(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesElipse(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesCirc(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesRetConc(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesRetParal(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesPonto(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DetalhesRetIdentica(double[] coeficientes)
+        {
+            throw new NotImplementedException();
+        }
+
+        string DetalhesConjVazio(double[] coeficientes)
+        {
+            string detalhes="Conjunto Vazio";
+            return detalhes;
+        }
 
 
     }
