@@ -39,15 +39,53 @@ namespace Conicas
             {
                 MessageBox.Show("Erro ao processar os campos!\nMais detalhes: " + a);
             }
+
+            bool translacao = true;
+
             FuncMatematicas funcmat = new FuncMatematicas();
             funcmat.calculaH_K(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
             double det = funcmat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
             // Retorna o determinante da matriz 2x2 para ver o número de soluções
-            Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+            // Se det !=0 -> Pode ser um ponto, circulo, elipse, hibérbole ou união de duas retas concorrentes
 
-            funcmat.calculaAlCl(matrizG2);
+            // Se det = 0 -> 2 Casos
+            //      Se H_K for SPI -> 2 retas idênticas
+            //      Se H_K for SI -> Parábola ou conjunto vazio
 
-            funcmat.mostraNovaEquacao();
+
+            // Se det !=0 e H_K é SI não da pra fazer a translação H e K = INFINITO
+            MessageBox.Show("Valor de H: "+funcmat.getH().ToString());
+            if (det==0 && Double.IsInfinity(funcmat.getH()))
+            {
+                // Não existe uma translação que pode eliminar os termos lineares
+                // Mas sempre existe uma rotação que elimina o termo quadrático misto
+                translacao = false;
+                MessageBox.Show("Não deu pra fazer translação :(");
+
+                Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+                // G2 é a equação geral sem os termos lineares (ainda com o misto)
+
+
+                // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
+                funcmat.calculaAlCl(matrizG2);
+                
+                // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
+
+            }
+            else
+            {
+                Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+                // G2 é a equação geral sem os termos lineares (ainda com o misto)
+
+
+                // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
+                funcmat.calculaAlCl(matrizG2);
+                funcmat.mostraNovaEquacao();
+            }
+
+
+            
+
             //funcmat.nomeConica()
             // InfoConica info = new InfoConica(nomeConica,coeficientes);
             // Infoconica.show();
