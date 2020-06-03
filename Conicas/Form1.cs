@@ -33,7 +33,8 @@ namespace Conicas
                 coeficientes[5] = double.Parse(txtF.Text);
 
                 lblEquacaoAtual.Text = printEqAtual(coeficientes);
-            
+                ConicaGraph conica = new ConicaGraph(coeficientes);
+                conica.Show();
             }
             catch (System.FormatException a)
             {
@@ -84,11 +85,11 @@ namespace Conicas
             }
 
 
-            
 
-            //funcmat.nomeConica()
-            // InfoConica info = new InfoConica(nomeConica,coeficientes);
-            // Infoconica.show();
+
+
+            InfoConica info = new InfoConica(coeficientes);
+            info.Show();
         }
         private string sinal(double coeficiente)
         {

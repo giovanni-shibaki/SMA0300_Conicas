@@ -26,7 +26,7 @@ namespace Conicas
         }
         // meu kakaka
         int idConica;
-        int h, k;
+        double h, k;
         double[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
         FuncMatematicas funcMat;
         public ElementosGeometricos(double[] coeficientes)
