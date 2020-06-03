@@ -15,22 +15,140 @@ namespace Conicas
 {
     class FuncMatematicas
     {
-        private string Name;
-        private Matrix<double> matrizG;
+        private double A;
+        private double B;
+        private double C;
+        private double D;
+        private double E;
+        private double F;
+
+
         private double h;
         private double k;
 
         private double aL; // a'
         private double cL; // c'
+
+        private double dL; // a'
+        private double eL; // c'
         // Conforme notas de aula pag 94
 
         // Constructor that takes one argument:
+
+        private Vector<double> g2;
         public FuncMatematicas()
         {
-            
+
         }
 
-        public string Name1 { get => Name; set => Name = value; }
+
+        public Vector<double> getVectorG2()
+        {
+            return this.g2;
+        }
+        public void setVectorG2(Vector<double> x)
+        {
+            this.g2 = x;
+        }
+
+        public double getA()
+        {
+            return this.A;
+        }
+        public void setA(double x)
+        {
+            this.A = x;
+        }
+        public double getB()
+        {
+            return this.B;
+        }
+        public void setB(double x)
+        {
+            this.B = x;
+        }
+        public double getC()
+        {
+            return this.C;
+        }
+        public void setC(double x)
+        {
+            this.C = x;
+        }
+        public double getD()
+        {
+            return this.D;
+        }
+        public void setD(double x)
+        {
+            this.D = x;
+        }
+        public double getE()
+        {
+            return this.E;
+        }
+        public void setE(double x)
+        {
+            this.E = x;
+        }
+        public double getF()
+        {
+            return this.F;
+        }
+        public void setF(double x)
+        {
+            this.F = x;
+        }
+
+        public void setH(double x)
+        {
+            this.h = x;
+        }
+        public void setK(double x)
+        {
+            this.k = x;
+        }
+        public double getH()
+        {
+            return this.h;
+        }
+        public double getK()
+        {
+            return this.k;
+        }
+        public double getAL()
+        {
+            return this.aL;
+        }
+        public double getCL()
+        {
+            return this.cL;
+        }
+        public void setAL(double x)
+        {
+            this.aL = x;
+        }
+        public void setCL(double x)
+        {
+            this.cL = x;
+        }
+
+        public double getDL()
+        {
+            return this.dL;
+        }
+        public double getEL()
+        {
+            return this.eL;
+        }
+        public void setDL(double x)
+        {
+            this.dL = x;
+        }
+        public void setEL(double x)
+        {
+            this.eL = x;
+        }
 
         public int AddTwoNumbers(int number1, int number2)
         {
@@ -93,7 +211,6 @@ namespace Conicas
             var t = Expr.Variable("t");
             MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
             // Agora simplificar a equação
-            Expr.Parse("").ToLaTeX();
         }
 
     }
