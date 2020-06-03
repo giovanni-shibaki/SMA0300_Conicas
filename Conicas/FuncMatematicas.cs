@@ -29,8 +29,13 @@ namespace Conicas
         private double aL; // a'
         private double cL; // c'
 
-        private double dL; // a'
-        private double eL; // c'
+        // Se não conseguir realizar a translação de primeira
+        private double dL; // d'
+        private double eL; // e'
+
+        private double sen0;
+        private double cos0;
+
         // Conforme notas de aula pag 94
 
         // Constructor that takes one argument:
@@ -42,6 +47,24 @@ namespace Conicas
         }
 
 
+
+        public double getSen()
+        {
+            return this.sen0;
+        }
+        public void setSen(double x)
+        {
+            this.sen0 = x;
+        }
+
+        public double getCos()
+        {
+            return this.cos0;
+        }
+        public void setCos(double x)
+        {
+            this.cos0 = x;
+        }
         public Vector<double> getVectorG2()
         {
             return this.g2;
@@ -210,6 +233,53 @@ namespace Conicas
             var s = Expr.Variable("s");
             var t = Expr.Variable("t");
             MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+            // Agora simplificar a equação
+        }
+
+        public void calculaSenCos()
+        {
+            double cotg2teta = (getA()-getC()) / getB();
+            double sen2teta = Math.Pow(Math.Sqrt(1 + Math.Pow((getA() - getC()) / getB(),2)), -1);
+            MessageBox.Show("Cotg2teta = " + cotg2teta);
+            MessageBox.Show("Sen2teta = " + sen2teta);
+            // Calculos retirados da pag 95 das notas de aula
+            double cos2teta = sen2teta * cotg2teta;
+            // Calculo de cos2teta retirado da pag 99 das notas de aula
+            // Portanto cos²TETA - sen²TETA = cos2teta;
+            // E cos²TETA + sen²TETA = 1
+            // Agora, resolver a equação e encontrar os valores de cosTETA e senTETA
+            //
+            // { cos²teta + sen²teta = 1
+            // { cos²teta - sen²teta = cos2teta
+            var A = Matrix<double>.Build.DenseOfArray(new double[,]{
+                { 1/* a' */, 1/* c' */ },
+                { 1/* a' */, -1/* -c' */ },
+            });
+            var B = Vector<double>.Build.Dense(new double[] { (double)1,cos2teta });
+            var x = A.Solve(B);
+            MessageBox.Show("sen²teta  e  cos²teta : " + x.ToString());
+            setCos(Math.Sqrt(x[0])); // Os valores estão ao quadrado, então deve ser aplicado raiz para obter senTeta e cosTeta
+            setSen(Math.Sqrt(x[1]));
+        }
+
+        public void calculaDlEl()
+        {
+            var A = Matrix<double>.Build.DenseOfArray(new double[,]{
+                { getCos()/* a' */, getSen()/* c' */ },
+                { -getSen()/* a' */, getCos()/* -c' */ },
+            });
+            MessageBox.Show("sen e cos em calculaDlEl: "+A.ToString());
+            var B = Vector<double>.Build.Dense(new double[] { getD(), getE() });
+            var x = A.Solve(B);
+            MessageBox.Show("d'  E  e' : " + x.ToString());
+            setDL(getCos() * getD() + getSen() * getE());
+            setEL(-getSen() * getD() + getCos() * getE());
+        }
+
+        //mostraNovaEquacao2 retorna a equação após fazer a rotação e a translação conforme o caso na pag 99 das notas de aula
+        public void mostraNovaEquacao2()
+        {
+            MessageBox.Show("Equação geral: " + getAL() + "u² + " + getCL() + "v² + "+ getDL() + "u + "+ getEL() + "v + " + getF() +" = 0");
             // Agora simplificar a equação
         }
 

@@ -23,6 +23,7 @@ namespace Conicas
         }
         private void btnCalcula_Click(object sender, EventArgs eventArgs)
         {
+            FuncMatematicas funcmat = new FuncMatematicas();
             try
             {
                 coeficientes[0] = double.Parse(txtA.Text);
@@ -31,6 +32,12 @@ namespace Conicas
                 coeficientes[3] = double.Parse(txtD.Text);
                 coeficientes[4] = double.Parse(txtE.Text);
                 coeficientes[5] = double.Parse(txtF.Text);
+                funcmat.setA(coeficientes[0]);
+                funcmat.setB(coeficientes[1]);
+                funcmat.setC(coeficientes[2]);
+                funcmat.setD(coeficientes[3]);
+                funcmat.setE(coeficientes[4]);
+                funcmat.setF(coeficientes[5]);
 
                 lblEquacaoAtual.Text = printEqAtual(coeficientes);
             
@@ -42,7 +49,6 @@ namespace Conicas
 
             bool translacao = true;
 
-            FuncMatematicas funcmat = new FuncMatematicas();
             funcmat.calculaH_K(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
             double det = funcmat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
             // Retorna o determinante da matriz 2x2 para ver o número de soluções
@@ -62,15 +68,18 @@ namespace Conicas
                 translacao = false;
                 MessageBox.Show("Não deu pra fazer translação :(");
 
-                Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
-                // G2 é a equação geral sem os termos lineares (ainda com o misto)
 
+                // G2 é a equação geral sem os termos lineares (ainda com o misto)
+                Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
 
                 // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
                 funcmat.calculaAlCl(matrizG2);
-                
-                // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
 
+                // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
+                funcmat.calculaSenCos();
+                funcmat.calculaDlEl();
+                Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), coeficientes[5]);
+                funcmat.mostraNovaEquacao2();
             }
             else
             {
