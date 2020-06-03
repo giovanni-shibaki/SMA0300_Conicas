@@ -42,9 +42,9 @@
             this.lblC = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCalcula = new System.Windows.Forms.Button();
-            this.lblEquacaoAtual = new System.Windows.Forms.Label();
+            this.lblEquacaoAtualTexto = new System.Windows.Forms.Label();
             this.lblEquacaoReduzidaText = new System.Windows.Forms.Label();
-            this.lblEquacaoAtua = new System.Windows.Forms.Label();
+            this.lblEquacaoAtual = new System.Windows.Forms.Label();
             this.lblEquacaoReduzida = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(35, 27);
             this.txtA.TabIndex = 1;
+            this.txtA.Text = "0";
             // 
             // txtB
             // 
@@ -77,6 +78,7 @@
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(35, 27);
             this.txtB.TabIndex = 2;
+            this.txtB.Text = "0";
             // 
             // lblB
             // 
@@ -98,6 +100,7 @@
             this.txtF.Name = "txtF";
             this.txtF.Size = new System.Drawing.Size(35, 27);
             this.txtF.TabIndex = 6;
+            this.txtF.Text = "0";
             // 
             // lvlF
             // 
@@ -118,6 +121,7 @@
             this.txtE.Name = "txtE";
             this.txtE.Size = new System.Drawing.Size(35, 27);
             this.txtE.TabIndex = 5;
+            this.txtE.Text = "0";
             // 
             // lblE
             // 
@@ -139,6 +143,7 @@
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(35, 27);
             this.txtD.TabIndex = 4;
+            this.txtD.Text = "0";
             // 
             // lblD
             // 
@@ -160,6 +165,7 @@
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(35, 27);
             this.txtC.TabIndex = 3;
+            this.txtC.Text = "0";
             // 
             // lblC
             // 
@@ -187,7 +193,7 @@
             // 
             // btnCalcula
             // 
-            this.btnCalcula.Location = new System.Drawing.Point(376, 365);
+            this.btnCalcula.Location = new System.Drawing.Point(365, 354);
             this.btnCalcula.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(123, 49);
@@ -196,16 +202,16 @@
             this.btnCalcula.UseVisualStyleBackColor = true;
             this.btnCalcula.Click += new System.EventHandler(this.btnCalcula_Click);
             // 
-            // lblEquacaoAtual
+            // lblEquacaoAtualTexto
             // 
-            this.lblEquacaoAtual.AutoSize = true;
-            this.lblEquacaoAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquacaoAtual.Location = new System.Drawing.Point(91, 233);
-            this.lblEquacaoAtual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEquacaoAtual.Name = "lblEquacaoAtual";
-            this.lblEquacaoAtual.Size = new System.Drawing.Size(183, 31);
-            this.lblEquacaoAtual.TabIndex = 17;
-            this.lblEquacaoAtual.Text = "Equação Atual:";
+            this.lblEquacaoAtualTexto.AutoSize = true;
+            this.lblEquacaoAtualTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquacaoAtualTexto.Location = new System.Drawing.Point(91, 233);
+            this.lblEquacaoAtualTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEquacaoAtualTexto.Name = "lblEquacaoAtualTexto";
+            this.lblEquacaoAtualTexto.Size = new System.Drawing.Size(146, 25);
+            this.lblEquacaoAtualTexto.TabIndex = 17;
+            this.lblEquacaoAtualTexto.Text = "Equação Atual:";
             // 
             // lblEquacaoReduzidaText
             // 
@@ -214,25 +220,27 @@
             this.lblEquacaoReduzidaText.Location = new System.Drawing.Point(91, 287);
             this.lblEquacaoReduzidaText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEquacaoReduzidaText.Name = "lblEquacaoReduzidaText";
-            this.lblEquacaoReduzidaText.Size = new System.Drawing.Size(220, 31);
+            this.lblEquacaoReduzidaText.Size = new System.Drawing.Size(176, 25);
             this.lblEquacaoReduzidaText.TabIndex = 18;
             this.lblEquacaoReduzidaText.Text = "Equação reduzida:";
             // 
-            // lblEquacaoAtua
+            // lblEquacaoAtual
             // 
-            this.lblEquacaoAtua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblEquacaoAtua.Location = new System.Drawing.Point(268, 240);
-            this.lblEquacaoAtua.Name = "lblEquacaoAtua";
-            this.lblEquacaoAtua.Size = new System.Drawing.Size(368, 26);
-            this.lblEquacaoAtua.TabIndex = 19;
-            this.lblEquacaoAtua.Text = "...";
+            this.lblEquacaoAtual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblEquacaoAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquacaoAtual.Location = new System.Drawing.Point(268, 240);
+            this.lblEquacaoAtual.Name = "lblEquacaoAtual";
+            this.lblEquacaoAtual.Size = new System.Drawing.Size(368, 26);
+            this.lblEquacaoAtual.TabIndex = 19;
+            this.lblEquacaoAtual.Text = "...";
             // 
             // lblEquacaoReduzida
             // 
             this.lblEquacaoReduzida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblEquacaoReduzida.Location = new System.Drawing.Point(274, 287);
+            this.lblEquacaoReduzida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquacaoReduzida.Location = new System.Drawing.Point(268, 287);
             this.lblEquacaoReduzida.Name = "lblEquacaoReduzida";
-            this.lblEquacaoReduzida.Size = new System.Drawing.Size(362, 26);
+            this.lblEquacaoReduzida.Size = new System.Drawing.Size(368, 26);
             this.lblEquacaoReduzida.TabIndex = 21;
             this.lblEquacaoReduzida.Text = "...";
             // 
@@ -241,11 +249,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(856, 418);
+            this.ClientSize = new System.Drawing.Size(858, 416);
             this.Controls.Add(this.lblEquacaoReduzida);
-            this.Controls.Add(this.lblEquacaoAtua);
-            this.Controls.Add(this.lblEquacaoReduzidaText);
             this.Controls.Add(this.lblEquacaoAtual);
+            this.Controls.Add(this.lblEquacaoReduzidaText);
+            this.Controls.Add(this.lblEquacaoAtualTexto);
             this.Controls.Add(this.btnCalcula);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtC);
@@ -285,9 +293,9 @@
         private System.Windows.Forms.Label lblC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCalcula;
-        private System.Windows.Forms.Label lblEquacaoAtual;
+        private System.Windows.Forms.Label lblEquacaoAtualTexto;
         private System.Windows.Forms.Label lblEquacaoReduzidaText;
-        private System.Windows.Forms.Label lblEquacaoAtua;
+        private System.Windows.Forms.Label lblEquacaoAtual;
         private System.Windows.Forms.Label lblEquacaoReduzida;
     }
 }
