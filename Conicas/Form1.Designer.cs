@@ -233,7 +233,6 @@
             this.lblEquacaoAtual.Size = new System.Drawing.Size(368, 26);
             this.lblEquacaoAtual.TabIndex = 19;
             this.lblEquacaoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblEquacaoAtual.Text = "...";
             // 
             // lblEquacaoReduzida
             // 

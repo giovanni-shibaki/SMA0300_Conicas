@@ -32,17 +32,20 @@ namespace Conicas
         }
 
         ElementosGeometricos elementos;
-        public InfoConica(int idConica, double[] coeficientes)
+        public InfoConica(double[] coeficientes)
         {
+            int idConica;
             InitializeComponent();
-            elementos = new ElementosGeometricos(idConica, coeficientes);
+
+            elementos = new ElementosGeometricos(coeficientes);
+            idConica = elementos.whatConica(coeficientes);
             ShowDetails(idConica, coeficientes);
         }
 
         #region Metodos
         void ShowDetails(int idConica, double[] coeficientes)
         {
-            lblDetalhes.Text = elementos.DetalhesConicas(idConica,coeficientes);
+           // lblDetalhes.Text = elementos.DetalhesConicas(coeficientes);
             lblClassificacao.Text = ClassConicas(idConica);
         }
 
