@@ -31,6 +31,9 @@ namespace Conicas
                 coeficientes[3] = double.Parse(txtD.Text);
                 coeficientes[4] = double.Parse(txtE.Text);
                 coeficientes[5] = double.Parse(txtF.Text);
+
+                lblEquacaoAtual.Text = printEqAtual(coeficientes);
+            
             }
             catch (System.FormatException a)
             {
@@ -45,8 +48,26 @@ namespace Conicas
             funcmat.calculaAlCl(matrizG2);
 
             funcmat.mostraNovaEquacao();
+            //funcmat.nomeConica()
             // InfoConica info = new InfoConica(nomeConica,coeficientes);
             // Infoconica.show();
+        }
+        private string sinal(double coeficiente)
+        {
+            string sinal;
+            return sinal = (coeficiente > 0) ? " + " : " ";
+        }
+        private string printEqAtual(double[] coeficientes)
+        {
+            string ret=null;
+
+            if (coeficientes[0] != 0) ret = coeficientes[0].ToString() + "x² ";
+            if (coeficientes[1] != 0) ret +=sinal(coeficientes[1]) + coeficientes[1].ToString() + "y²";
+            if (coeficientes[2] != 0) ret +=sinal(coeficientes[2]) + coeficientes[2].ToString() + "xy";
+            if (coeficientes[3] != 0) ret +=sinal(coeficientes[3]) + coeficientes[3].ToString() + "x";
+            if (coeficientes[4] != 0) ret +=sinal(coeficientes[4]) + coeficientes[4].ToString() + "y";
+            if (coeficientes[5] != 0) ret +=sinal(coeficientes[5]) + coeficientes[5].ToString();
+            return ret;
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
