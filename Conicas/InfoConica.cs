@@ -36,16 +36,15 @@ namespace Conicas
         {
             int idConica;
             InitializeComponent();
-           
+            
             elementos = new ElementosGeometricos(coeficientes);
             idConica = elementos.whatConica(coeficientes);
             ShowDetails(idConica, coeficientes);
         }
 
-        #region Metodos
         void ShowDetails(int idConica, double[] coeficientes)
         {
-           // lblDetalhes.Text = elementos.DetalhesConicas(coeficientes);
+            lblDetalhes.Text = elementos.DetalhesConicas(coeficientes);
             lblClassificacao.Text = ClassConicas(idConica);
         }
 
@@ -74,7 +73,6 @@ namespace Conicas
             }
             return "Erro";
         }
-        #endregion
 
         #region Eventos
         private void InfoConica_FormClosing(object sender, FormClosingEventArgs e)

@@ -36,6 +36,7 @@
             // 
             // lblDetalhes
             // 
+            this.lblDetalhes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetalhes.Location = new System.Drawing.Point(30, 158);
             this.lblDetalhes.Name = "lblDetalhes";
             this.lblDetalhes.Size = new System.Drawing.Size(760, 357);
@@ -45,11 +46,12 @@
             // lblClassificacao
             // 
             this.lblClassificacao.BackColor = System.Drawing.SystemColors.Control;
-            this.lblClassificacao.Location = new System.Drawing.Point(169, 79);
+            this.lblClassificacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassificacao.Location = new System.Drawing.Point(178, 78);
             this.lblClassificacao.Name = "lblClassificacao";
-            this.lblClassificacao.Size = new System.Drawing.Size(621, 26);
+            this.lblClassificacao.Size = new System.Drawing.Size(612, 26);
             this.lblClassificacao.TabIndex = 1;
-            this.lblClassificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClassificacao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTextoClassificacao
             // 

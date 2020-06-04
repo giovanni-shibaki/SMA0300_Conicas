@@ -103,8 +103,8 @@ namespace Conicas
             string ret=null;
 
             if (coeficientes[0] != 0) ret = coeficientes[0].ToString() + "x² ";
-            if (coeficientes[1] != 0) ret +=sinal(coeficientes[1]) + coeficientes[1].ToString() + "y²";
-            if (coeficientes[2] != 0) ret +=sinal(coeficientes[2]) + coeficientes[2].ToString() + "xy";
+            if (coeficientes[1] != 0) ret += sinal(coeficientes[1]) + coeficientes[1].ToString() + "xy";
+            if (coeficientes[2] != 0) ret +=sinal(coeficientes[2]) + coeficientes[2].ToString() + "y²";
             if (coeficientes[3] != 0) ret +=sinal(coeficientes[3]) + coeficientes[3].ToString() + "x";
             if (coeficientes[4] != 0) ret +=sinal(coeficientes[4]) + coeficientes[4].ToString() + "y";
             if (coeficientes[5] != 0) ret +=sinal(coeficientes[5]) + coeficientes[5].ToString();
