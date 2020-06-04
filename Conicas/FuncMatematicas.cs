@@ -47,7 +47,7 @@ namespace Conicas
         }
 
 
-
+        #region getters and setters
         public double getSen()
         {
             return this.sen0;
@@ -172,11 +172,7 @@ namespace Conicas
         {
             this.eL = x;
         }
-
-        public int AddTwoNumbers(int number1, int number2)
-        {
-            return number1 + number2;
-        }
+        #endregion
 
         public void calculaH_K(double a, double b, double c, double d, double e, double f)
         {
@@ -192,6 +188,17 @@ namespace Conicas
             MessageBox.Show(x.ToString());
             h = x[0];
             k = x[1];
+        }
+        public double whole_matrix_determinant(double a, double b, double c, double d, double e, double f)
+        {
+            double det;
+            var matriz = Matrix<double>.Build.DenseOfArray(new double[,] {
+                { a, b/2, d/2 },
+                { b/2, c, e/2 },
+                {d/2, e/2, f }
+            });
+            det = matriz.Determinant();
+            return det;
         }
 
         public double acharSolucoesSistema(double a,double b,double c)

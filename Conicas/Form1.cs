@@ -96,7 +96,7 @@ namespace Conicas
 
 
 
-
+            //coeficientes = new_coeficientes();
             InfoConica info = new InfoConica(coeficientes);
             info.Show();
         }

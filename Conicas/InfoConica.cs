@@ -36,7 +36,7 @@ namespace Conicas
         {
             int idConica;
             InitializeComponent();
-
+           
             elementos = new ElementosGeometricos(coeficientes);
             idConica = elementos.whatConica(coeficientes);
             ShowDetails(idConica, coeficientes);
