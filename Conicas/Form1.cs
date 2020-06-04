@@ -50,7 +50,7 @@ namespace Conicas
 
             bool translacao = true;
 
-            funcmat.calculaH_K(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+            funcmat.calculaH_K(coeficientes);
             double det = funcmat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
             // Retorna o determinante da matriz 2x2 para ver o número de soluções
             // Se det !=0 -> Pode ser um ponto, circulo, elipse, hibérbole ou união de duas retas concorrentes
