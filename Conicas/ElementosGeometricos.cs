@@ -84,6 +84,7 @@ namespace Conicas
             this.k = funcMat.getK();
 
             // Conicas com centro unico
+<<<<<<< HEAD
             
             if (big_det != 0)
             {
@@ -92,6 +93,11 @@ namespace Conicas
                 // ponto
                 if (det==0 && coeficientes[0] == coeficientes[1] && coeficientes[5] == 0) { return 1; }
 
+=======
+
+            if (big_det != 0)
+            {
+>>>>>>> master
                 // circ
                 if (coeficientes[0] == coeficientes[2] && coeficientes[1] == 0) { return 5; }
                 // elipse
