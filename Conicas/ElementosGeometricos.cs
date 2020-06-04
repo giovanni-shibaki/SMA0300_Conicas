@@ -40,36 +40,36 @@ namespace Conicas
             idConica = whatConica(coeficientes);
             Conicas selection = (Conicas)idConica;
 
-            switch (selection)
-            {
-                case Conicas.ConjuntoVazio:
-                    return DetalhesConjVazio(coeficientes);
+            //switch (selection)
+            //{
+            //    case Conicas.ConjuntoVazio:
+            //        return DetalhesConjVazio(coeficientes);
 
-                case Conicas.Ponto:
-                    return DetalhesPonto(coeficientes);
+            //    case Conicas.Ponto:
+            //        return DetalhesPonto(coeficientes);
 
-                case Conicas.DuasRetasIdenticas:
-                    return DetalhesRetIdentica(coeficientes);
+            //    case Conicas.DuasRetasIdenticas:
+            //        return DetalhesRetIdentica(coeficientes);
 
-                case Conicas.DuasRetasParalela:
-                    return DetalhesRetParal(coeficientes);
+            //    case Conicas.DuasRetasParalela:
+            //        return DetalhesRetParal(coeficientes);
 
-                case Conicas.DuasRetasConcorrentes:
-                    return DetalhesRetConc(coeficientes);
+            //    case Conicas.DuasRetasConcorrentes:
+            //        return DetalhesRetConc(coeficientes);
 
-                case Conicas.Circulo:
-                    return DetalhesCirc(coeficientes);
+            //    case Conicas.Circulo:
+            //        return DetalhesCirc(coeficientes);
 
-                case Conicas.Elipse:
-                    return DetalhesElipse(coeficientes);
+            //    case Conicas.Elipse:
+            //        return DetalhesElipse(coeficientes);
 
-                case Conicas.Hiperbole:
-                    return DetalhesHiperbole(coeficientes);
+            //    case Conicas.Hiperbole:
+            //        return DetalhesHiperbole(coeficientes);
 
-                case Conicas.Parabola:
-                    return DetalhesParabol(coeficientes);
+            //    case Conicas.Parabola:
+            //        return DetalhesParabol(coeficientes);
 
-            }
+            //}
             return "Erro";
         }
 
