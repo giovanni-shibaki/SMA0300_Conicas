@@ -82,30 +82,46 @@ namespace Conicas
             this.k = funcMat.getK();
 
             // Conicas com centro unico
-            if (det != 0)
-            {
-                // se nao tem termo independente
-                // se f = 1: hiperbole ou elipse
-                if (coeficientes[5] == 1)
-                {
-                    // se x^2 e x^2 sao positivos, temos elipse
-                    if (coeficientes[0] > 0 && coeficientes[1] > 0) { return 6; }
-                    // se x^2 e y^2 tem sinais contrarios, temos hiperbole
-                    if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 7; }
-                }
-                // se f<0 e x^2>0 e y^2>0, pode ser uma circunferencia
-                if (coeficientes[5] < 0 && coeficientes[0] > 0 && coeficientes[1] > 0)
-                {
-                    return 5;
-                }
-                // se x^2 e y^2 tem coeficientes opostos,entao temos retas concorrentes
-                if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 4; }
+            #region condicoes - Inspired by Rod Stephens
+            // Elipse
+            if (det < 0) { return 6; }
+            // Circulo
+            else if (det < 0 && coeficientes[0] == 0 && coeficientes[1] == 0) { return 5; }
+            //Hiperbole
+            else if (det > 0) { return 7; }
+            //Retas Concorrentes: se x^2 e y^2 tem coeficientes opostos,entao temos 
+            //else if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 4; }
+            //Ponto: se x^2 e y^2 sao positivos e nao temos f
+            if (coeficientes[5] == 0 && coeficientes[0] > 0 && coeficientes[1] > 0) { return 1; }
+            #endregion
+            #region condicoes - Kenzo Edition
 
-                // se x^2 e y^2 sao positivos e nao temos f, temos um ponto  
-                if (coeficientes[5] == 0 && coeficientes[0] > 0 && coeficientes[1] > 0) { }
+            //if (det != 0)
+            //{
 
-                // Conicas com centros infinitos ou conicas sem centro
-            }
+            //    // se nao tem termo independente
+            //    // se f = 1: hiperbole ou elipse
+            //    if (coeficientes[5] == 1)
+            //    {
+            //        // se x^2 e x^2 sao positivos, temos elipse
+            //        if (coeficientes[0] > 0 && coeficientes[1] > 0) { return 6; }
+            //        // se x^2 e y^2 tem sinais contrarios, temos hiperbole
+            //        if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 7; }
+            //    }
+            //    // se f<0 e x^2>0 e y^2>0, pode ser uma circunferencia
+            //    if (coeficientes[5] < 0 && coeficientes[0] > 0 && coeficientes[1] > 0)
+            //    {
+            //        return 5;
+            //    }
+            //    // se x^2 e y^2 tem coeficientes opostos,entao temos retas concorrentes
+            //    if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 4; }
+
+            //    // se x^2 e y^2 sao positivos e nao temos f, temos um ponto  
+            //    if (coeficientes[5] == 0 && coeficientes[0] > 0 && coeficientes[1] > 0) { }
+
+            //}
+            #endregion
+            //  Conicas com centros infinitos ou conicas sem centro
             else if (det == 0)
             {
                 // se o sistema de h e k da SPI

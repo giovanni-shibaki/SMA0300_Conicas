@@ -46,6 +46,7 @@
             this.lblEquacaoReduzidaText = new System.Windows.Forms.Label();
             this.lblEquacaoAtual = new System.Windows.Forms.Label();
             this.lblEquacaoReduzida = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -184,7 +185,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(113, 74);
+            this.label3.Location = new System.Drawing.Point(113, 75);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(615, 25);
@@ -244,12 +245,24 @@
             this.lblEquacaoReduzida.TabIndex = 21;
             this.lblEquacaoReduzida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(35, 148);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(74, 49);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Limpar";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnLimpar);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(858, 416);
+            this.ClientSize = new System.Drawing.Size(858, 413);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblEquacaoReduzida);
             this.Controls.Add(this.lblEquacaoAtual);
             this.Controls.Add(this.lblEquacaoReduzidaText);
@@ -298,6 +311,7 @@
         private System.Windows.Forms.Label lblEquacaoReduzidaText;
         private System.Windows.Forms.Label lblEquacaoAtual;
         private System.Windows.Forms.Label lblEquacaoReduzida;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

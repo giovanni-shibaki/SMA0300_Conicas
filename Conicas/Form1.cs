@@ -128,5 +128,16 @@ namespace Conicas
                 return;
             }
         }
+
+        private void btnLimpar(object sender, EventArgs e)
+        {
+            txtA.Text = "0";
+            txtB.Text = "0";
+            txtC.Text = "0";
+            txtD.Text = "0";
+            txtE.Text = "0";
+            txtF.Text = "0";
+            txtA.Focus();
+        }
     }
 }

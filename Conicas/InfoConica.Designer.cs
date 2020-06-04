@@ -49,6 +49,7 @@
             this.lblClassificacao.Name = "lblClassificacao";
             this.lblClassificacao.Size = new System.Drawing.Size(621, 26);
             this.lblClassificacao.TabIndex = 1;
+            this.lblClassificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTextoClassificacao
             // 
