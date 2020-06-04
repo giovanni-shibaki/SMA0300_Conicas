@@ -27,6 +27,7 @@ namespace Conicas
         private double k;
 
         private double aL; // a'
+        private double bL = (double)0;
         private double cL; // c'
 
         // Se não conseguir realizar a translação de primeira
@@ -172,6 +173,14 @@ namespace Conicas
         {
             this.eL = x;
         }
+        public double getBL()
+        {
+            return this.bL;
+        }
+        public void setBL(double x)
+        {
+            this.bL = x;
+        }
         #endregion
 
         public void calculaH_K(double[] coeficientes)
@@ -189,10 +198,10 @@ namespace Conicas
                 { Convert.ToInt32(a), Convert.ToInt32(b/2) },
                 { Convert.ToInt32(b/2), Convert.ToInt32(c) },
             });
-            MessageBox.Show(A.ToString());
+            MessageBox.Show("Matriz para calcular H e K: "+A.ToString());
             var B = Vector<double>.Build.Dense(new double[] { -(d/2), -(e/2) });
             var x = A.Solve(B);
-            MessageBox.Show(x.ToString());
+            MessageBox.Show("H e K: "+x.ToString());
             h = x[0];
             k = x[1];
         }
@@ -239,7 +248,7 @@ namespace Conicas
                 { 1/* a' */, 1/* c' */ },
                 { 1/* a' */, -1/* -c' */ },
             });
-            MessageBox.Show(A.ToString());
+            MessageBox.Show("Matriz para achar aL e cL"+A.ToString());
             MessageBox.Show((g2[0] + g2[2]).ToString());
             MessageBox.Show((g2[1] * Math.Sqrt(1 + Math.Pow(((g2[0] - g2[2]) / g2[1]), 2))).ToString());
             var B = Vector<double>.Build.Dense(new double[] { Convert.ToDouble(g2[0]+g2[2]), /* g2[0] = termo a de g2;  g2[2] = termo c de g2*/Convert.ToDouble(g2[1]*Math.Sqrt(1 + Math.Pow( ( (g2[0]-g2[2])/g2[1]),2) ) ) });
@@ -253,7 +262,14 @@ namespace Conicas
         {
             var s = Expr.Variable("s");
             var t = Expr.Variable("t");
-            MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+
+            // Achar o novo termo independente da equação:
+            setF((getD()/2)*getH() + (getE()/2)*getK() + getF());
+
+            //MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+            var eq = Infix.ParseOrThrow(getAL().ToString() + "*u*u+" + getBL().ToString() + "*u*v+" + getCL().ToString() + "*v*v+" + getDL().ToString() + "*u+" + getEL().ToString() + "*v"+getF().ToString());
+            var expanded = Algebraic.Expand(eq);
+            MessageBox.Show("Equação Geral: " + Infix.FormatStrict(expanded));
             // Agora simplificar a equação
         }
 
@@ -300,8 +316,31 @@ namespace Conicas
         //mostraNovaEquacao2 retorna a equação após fazer a rotação e a translação conforme o caso na pag 99 das notas de aula
         public void mostraNovaEquacao2()
         {
-            MessageBox.Show("Equação geral: " + getAL() + "u² + " + getCL() + "v² + "+ getDL() + "u + "+ getEL() + "v + " + getF() +" = 0");
+            // O termo independente continua o mesmo pois não foi realizada a translação
+
+            var eq = Infix.ParseOrThrow(getAL().ToString()+"*u*u+"+getBL().ToString()+"*u*v+"+getCL().ToString()+"*v*v+"+ getDL().ToString()+"*u+"+getEL().ToString()+"*v+"+getF().ToString());
+            var expanded = Algebraic.Expand(eq);
+            MessageBox.Show("Equação Geral: "+Infix.FormatStrict(expanded));
+            
+            
+
+            // B = 0
             // Agora simplificar a equação
+        }
+
+        // Reduz a equação através de um centro dado (H,K)
+        // Notas de aula pág 99
+        public void simplificarEq()
+        {
+            // Eq Geral: aV² + 0U.V + cU² + dV + eU + f
+            // {v = t + h
+            // {u = w + k
+            // Substituir V e U na equação geral
+            // Através da biblioteca Math.NET
+            
+            //var h1 = Infix.ParseOrThrow("(1/8)*r*t*w + (1/2)*r*t^2*w");
+            //var q2 = Rational.Expand(q1);
+            
         }
 
     }

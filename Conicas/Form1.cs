@@ -77,9 +77,18 @@ namespace Conicas
                 // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
                 funcmat.calculaSenCos();
                 funcmat.calculaDlEl();
-                Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), coeficientes[5]);
+                Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
                 funcmat.mostraNovaEquacao2();
                 // Agora falta realizar a translação
+                // Com a nova equação gerada
+
+                // achar h e k:
+                double[] coeficientes = {
+                        funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF()
+                };
+                funcmat.calculaH_K(coeficientes);
+
+                //Simplificar a equação usando como centro (H,K)
             }
             else
             {
