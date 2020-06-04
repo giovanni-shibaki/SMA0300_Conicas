@@ -27,6 +27,7 @@ namespace Conicas
         private double k;
 
         private double aL; // a'
+        private double bL = (double)0;
         private double cL; // c'
 
         // Se não conseguir realizar a translação de primeira
@@ -172,6 +173,14 @@ namespace Conicas
         {
             this.eL = x;
         }
+        public double getBL()
+        {
+            return this.bL;
+        }
+        public void setBL(double x)
+        {
+            this.bL = x;
+        }
         #endregion
 
         public void calculaH_K(double[] coeficientes)
@@ -183,18 +192,28 @@ namespace Conicas
             double e = coeficientes[4];
             double f = coeficientes[5];
 
-            MessageBox.Show((a-b).ToString());
             var A = Matrix<double>.Build.DenseOfArray(new double[,]
             {
                 { Convert.ToInt32(a), Convert.ToInt32(b/2) },
                 { Convert.ToInt32(b/2), Convert.ToInt32(c) },
             });
-            MessageBox.Show(A.ToString());
+            MessageBox.Show("Matriz para calcular H e K: "+A.ToString());
             var B = Vector<double>.Build.Dense(new double[] { -(d/2), -(e/2) });
             var x = A.Solve(B);
-            MessageBox.Show(x.ToString());
+            MessageBox.Show("H e K: "+x.ToString());
             h = x[0];
             k = x[1];
+
+            if(!Double.IsInfinity(getH())) // Se o determinante deu diferente de zero foi possível realizar a translação
+            {
+                // Achar o novo termo independente da equação: (p.96)
+                setF((getD() / 2) * getH() + (getE() / 2) * getK() + getF());
+
+                var eq = Infix.ParseOrThrow(getA().ToString() + "*u*u+" + getB().ToString() + "*u*v+" + getC().ToString() + "*v*v+"+ getF().ToString());
+                var expanded = Algebraic.Expand(eq);
+                MessageBox.Show("Translação realizada!\nNova equação da cônica:\n"+Infix.FormatStrict(expanded)+" ","Translação Concluida",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Iniciando Rotação para elimianar o termo quadrático misto", "Iniciando Rotação", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
         }
         public double whole_matrix_determinant(double []coeficientes)
         {
@@ -223,6 +242,7 @@ namespace Conicas
                 { b/2, c },
             });
             det = matriz.Determinant();
+            MessageBox.Show("Valor de determinante encontrado: " + det, "Determinante", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return det;
         }
 
@@ -239,9 +259,11 @@ namespace Conicas
                 { 1/* a' */, 1/* c' */ },
                 { 1/* a' */, -1/* -c' */ },
             });
-            MessageBox.Show(A.ToString());
-            MessageBox.Show((g2[0] + g2[2]).ToString());
-            MessageBox.Show((g2[1] * Math.Sqrt(1 + Math.Pow(((g2[0] - g2[2]) / g2[1]), 2))).ToString());
+            MessageBox.Show("Matriz para achar aL e cL:\n"+A.ToString());
+
+            //MessageBox.Show((g2[0] + g2[2]).ToString());
+            //MessageBox.Show((g2[1] * Math.Sqrt(1 + Math.Pow(((g2[0] - g2[2]) / g2[1]), 2))).ToString());
+            
             var B = Vector<double>.Build.Dense(new double[] { Convert.ToDouble(g2[0]+g2[2]), /* g2[0] = termo a de g2;  g2[2] = termo c de g2*/Convert.ToDouble(g2[1]*Math.Sqrt(1 + Math.Pow( ( (g2[0]-g2[2])/g2[1]),2) ) ) });
             var x = A.Solve(B);
             MessageBox.Show("a'  e  c' : "+x.ToString());
@@ -249,20 +271,29 @@ namespace Conicas
             cL = x[1];
         }
 
-        public void mostraNovaEquacao()
+        public string mostraNovaEquacao()
         {
-            var s = Expr.Variable("s");
-            var t = Expr.Variable("t");
-            MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
-            // Agora simplificar a equação
+            /*var s = Expr.Variable("s");
+            var t = Expr.Variable("t");*/
+
+
+            //MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+            var eq = Infix.ParseOrThrow(getAL().ToString() + "*u*u+" + getBL().ToString() + "*u*v+" + getCL().ToString() + "*v*v+" + getDL().ToString() + "*u+" + getEL().ToString() + "*v+"+getF().ToString());
+            var expanded = Algebraic.Expand(eq);
+            MessageBox.Show("Equação Geral: " + Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                // Agora falta simplificar a equação
+
+
+            return Infix.FormatStrict(expanded).ToString();
         }
 
         public void calculaSenCos()
         {
             double cotg2teta = (getA()-getC()) / getB();
             double sen2teta = Math.Pow(Math.Sqrt(1 + Math.Pow((getA() - getC()) / getB(),2)), -1);
-            MessageBox.Show("Cotg2teta = " + cotg2teta);
-            MessageBox.Show("Sen2teta = " + sen2teta);
+            //MessageBox.Show("Cotg2teta = " + cotg2teta);
+            //MessageBox.Show("Sen2teta = " + sen2teta);
             // Calculos retirados da pag 95 das notas de aula
             double cos2teta = sen2teta * cotg2teta;
             // Calculo de cos2teta retirado da pag 99 das notas de aula
@@ -289,7 +320,7 @@ namespace Conicas
                 { getCos()/* a' */, getSen()/* c' */ },
                 { -getSen()/* a' */, getCos()/* -c' */ },
             });
-            MessageBox.Show("sen e cos em calculaDlEl: "+A.ToString());
+            //MessageBox.Show("sen e cos em calculaDlEl: "+A.ToString());
             var B = Vector<double>.Build.Dense(new double[] { getD(), getE() });
             var x = A.Solve(B);
             MessageBox.Show("d'  E  e' : " + x.ToString());
@@ -300,8 +331,31 @@ namespace Conicas
         //mostraNovaEquacao2 retorna a equação após fazer a rotação e a translação conforme o caso na pag 99 das notas de aula
         public void mostraNovaEquacao2()
         {
-            MessageBox.Show("Equação geral: " + getAL() + "u² + " + getCL() + "v² + "+ getDL() + "u + "+ getEL() + "v + " + getF() +" = 0");
+            // O termo independente continua o mesmo pois não foi realizada a translação
+
+            var eq = Infix.ParseOrThrow(getAL().ToString()+"*u*u+"+getBL().ToString()+"*u*v+"+getCL().ToString()+"*v*v+"+ getDL().ToString()+"*u+"+getEL().ToString()+"*v+"+getF().ToString());
+            var expanded = Algebraic.Expand(eq);
+            MessageBox.Show("Equação Geral: "+Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            
+            
+
+            // B = 0
             // Agora simplificar a equação
+        }
+
+        // Reduz a equação através de um centro dado (H,K)
+        // Notas de aula pág 99
+        public void simplificarEq()
+        {
+            // Eq Geral: aV² + 0U.V + cU² + dV + eU + f
+            // {v = t + h
+            // {u = w + k
+            // Substituir V e U na equação geral
+            // Através da biblioteca Math.NET
+            
+            //var h1 = Infix.ParseOrThrow("(1/8)*r*t*w + (1/2)*r*t^2*w");
+            //var q2 = Rational.Expand(q1);
+            
         }
 
     }

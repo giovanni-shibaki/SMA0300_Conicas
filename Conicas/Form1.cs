@@ -72,18 +72,29 @@ namespace Conicas
                 // Não existe uma translação que pode eliminar os termos lineares
                 // Mas sempre existe uma rotação que elimina o termo quadrático misto
                 translacao = false;
-                MessageBox.Show("Não deu pra fazer translação :(");
+                MessageBox.Show("Não foi possível realizar a translação e remover os termos lineares!\n O sistema linear encontrado para achar os valores de H e K é incompatível!\n Iniciando rotação...", "Erro translação", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
                 funcmat.calculaSenCos();
                 funcmat.calculaDlEl();
-                Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), coeficientes[5]);
+                Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
                 funcmat.mostraNovaEquacao2();
                 // Agora falta realizar a translação
+                // Com a nova equação gerada
+
+                // achar h e k:
+
+                /*double[] coeficientes = {
+                        funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF()
+                };
+                funcmat.calculaH_K(coeficientes);
+                */
+
+                //Simplificar a equação usando como centro (H,K)
             }
             else
             {
-                funcmat.mostraNovaEquacao();
+                lblEquacaoAtual.Text = funcmat.mostraNovaEquacao();
             }
 
 
