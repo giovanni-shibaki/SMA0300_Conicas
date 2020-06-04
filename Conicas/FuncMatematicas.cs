@@ -174,8 +174,15 @@ namespace Conicas
         }
         #endregion
 
-        public void calculaH_K(double a, double b, double c, double d, double e, double f)
+        public void calculaH_K(double[] coeficientes)
         {
+            double a = coeficientes[0];
+            double b = coeficientes[1];
+            double c = coeficientes[2];
+            double d = coeficientes[3];
+            double e = coeficientes[4];
+            double f = coeficientes[5];
+
             MessageBox.Show((a-b).ToString());
             var A = Matrix<double>.Build.DenseOfArray(new double[,]
             {
@@ -189,8 +196,15 @@ namespace Conicas
             h = x[0];
             k = x[1];
         }
-        public double whole_matrix_determinant(double a, double b, double c, double d, double e, double f)
+        public double whole_matrix_determinant(double []coeficientes)
         {
+            double a = coeficientes[0];
+            double b = coeficientes[1];
+            double c = coeficientes[2];
+            double d = coeficientes[3];
+            double e = coeficientes[4];
+            double f = coeficientes[5];
+
             double det;
             var matriz = Matrix<double>.Build.DenseOfArray(new double[,] {
                 { a, b/2, d/2 },

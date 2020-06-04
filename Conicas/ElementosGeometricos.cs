@@ -75,43 +75,35 @@ namespace Conicas
 
         public int whatConica(double[] coeficientes)
         {
-            // Test of coeficients
-            //coeficientes[0] = 4;
-            //coeficientes[1] = -4;
-            //coeficientes[2] = 7;
-            //coeficientes[3] = 12;
-            //coeficientes[4] = 6;
-            //coeficientes[5] = -9;
-
-
-
-            double det = funcMat.acharSolucoesSistema(4, -4, 7);
-            funcMat.calculaH_K(4, -4, 7, 12, 6, -9);
+        
+            double big_det = funcMat.whole_matrix_determinant(coeficientes);
+            double det = funcMat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
+            funcMat.calculaH_K(coeficientes);
 
             this.h = funcMat.getH();
             this.k = funcMat.getK();
 
             // Conicas com centro unico
-            #region condicoes - Inspired by Rod Stephens
-            
-          
-            // circ
-            if (coeficientes[0] == coeficientes[2] && coeficientes[1] == 0) { return 5; }
-            // elipse
-            else if (det > 0) { return 6; }
-            //Hiperbole
-            else if (det < 0) { return 7; }
-            // parabola
-            else if (det == 0) { return 8; }
-            //Retas Concorrentes: se x^2 e y^2 tem coeficientes opostos,entao temos 
-            //else if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 4; }
-            //Ponto: se x^2 e y^2 sao positivos e nao temos f
-            if (coeficientes[5] == 0 && coeficientes[0] > 0 && coeficientes[1] > 0) { return 1; }
-            #endregion
-          
-            //  Conicas com centros infinitos ou conicas sem centro
-            else if (det == 0)
+
+            if (big_det != 0)
             {
+                // circ
+                if (coeficientes[0] == coeficientes[2] && coeficientes[1] == 0) { return 5; }
+                // elipse
+                else if (det > 0) { return 6; }
+                //Hiperbole
+                else if (det < 0) { return 7; }
+                // parabola
+                else if (det == 0) { return 8; }
+                //Retas Concorrentes: se x^2 e y^2 tem coeficientes opostos,entao temos 
+                //else if (coeficientes[0] > 0 && coeficientes[1] < 0 || coeficientes[0] > 0 && coeficientes[1] < 0) { return 4; }
+                //Ponto: se x^2 e y^2 sao positivos e nao temos f
+                if (coeficientes[5] == 0 && coeficientes[0] > 0 && coeficientes[1] > 0) { return 1; }
+            }
+            else if (big_det == 0)
+            {
+                //  Conicas com centros infinitos ou conicas sem centro
+
                 // se o sistema de h e k da SPI
                 if (Double.IsInfinity(h) && Double.IsInfinity(k))
                 {
@@ -131,6 +123,7 @@ namespace Conicas
                     return 8;
                 }
             }
+                      
             return -1;// ERRO
         }
 
