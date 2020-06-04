@@ -61,7 +61,12 @@ namespace Conicas
 
 
             // Se det !=0 e H_K é SI não da pra fazer a translação H e K = INFINITO
-            MessageBox.Show("Valor de H: "+funcmat.getH().ToString());
+            // G2 é a equação geral sem os termos lineares (ainda com o misto)
+            Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+
+            // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
+            funcmat.calculaAlCl(matrizG2);
+
             if (det==0 && Double.IsInfinity(funcmat.getH()))
             {
                 // Não existe uma translação que pode eliminar os termos lineares
@@ -69,27 +74,15 @@ namespace Conicas
                 translacao = false;
                 MessageBox.Show("Não deu pra fazer translação :(");
 
-
-                // G2 é a equação geral sem os termos lineares (ainda com o misto)
-                Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
-
-                // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
-                funcmat.calculaAlCl(matrizG2);
-
                 // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
                 funcmat.calculaSenCos();
                 funcmat.calculaDlEl();
                 Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), coeficientes[5]);
                 funcmat.mostraNovaEquacao2();
+                // Agora falta realizar a translação
             }
             else
             {
-                Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
-                // G2 é a equação geral sem os termos lineares (ainda com o misto)
-
-
-                // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
-                funcmat.calculaAlCl(matrizG2);
                 funcmat.mostraNovaEquacao();
             }
 

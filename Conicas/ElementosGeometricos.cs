@@ -170,5 +170,7 @@ namespace Conicas
             string detalhes = "Conjunto Vazio";
             return detalhes;
         }
-        #endregion
+    }
+}       
+#endregion
 
