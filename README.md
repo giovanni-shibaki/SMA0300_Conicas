@@ -1,23 +1,90 @@
 # SMA0300 - Conic Section Rotation and Translation Algorithm in C# Winforms
+
 This project is part of SMA0300 Analytical Geometry course in USP Sao Carlos. Given a general conic section equation, this software can process it by applying rotation and translation techniques (as presented by Prof Farid's class notes) and, thus, returning a simplified equation. 
 
-In order to execute matrix operations, we used MathNet.Numerics.LinearAlgebra library in a Visual Studio application. 
+In order to execute Linear algebra operations involving matrices, we used MathNet.Numerics.LinearAlgebra library in a Visual Studio application. 
 
+## Running the Application
+
+Due to the fact that this application is based on Winforms C#, it can only run in a Windows-based environment. If on windows, just clone this repository and run the project on Visual Studio 2019 (preferably).
+## Most important pieces of code
+
+### FuncMatematicas.cs
+* **Relative Path**: SMA0300_Conicas\Conicas\FuncMatematicas.cs
+* **Funcionality**: Handles all rotation and translation procedures given the coeficients of the conic section equation
+* **Sample**: The function below 
+
+
+### ElementosGeometricos.cs
+* **Relative Path**: SMA0300_Conicas\Conicas\ElementosGeometricos.cs
+* **Funcionality**: This class takes care of all conic section classification and extra information procedures
+* **Sample**: Down below you can check the function that receives the coeficients of a general conic section equation end tells you what conic it is
+```c#
+ public int whatConica(double[] coeficientes)
+        {
+            // determinante da matrix de coeficientes 3x3
+            double big_det = funcMat.whole_matrix_determinant(coeficientes);
+            // determinante da matriz "minor" 2x2 formada por a,b,c
+            double det = funcMat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
+            
+            //  Conica nao degenerada: tem conicas com centro unico
+            if (big_det != 0)
+            {
+                // conjunto vazio nos Reais   --> (A+C)*big_det > 0            
+                if ((coeficientes[0] + coeficientes[2]) * big_det > 0) { return 0; }
+                // circ
+                else if (coeficientes[0] == coeficientes[2] && coeficientes[1] == 0) { return 5; }
+                // elipse
+                else if (det > 0) { return 6; }
+                //Hiperbole
+                else if (det < 0) { return 7; }
+                // parabola
+                else if (det == 0) { return 8; }
+            }
+            //  Conicas Degeneradas
+            else if (big_det == 0)
+            {
+                // ponto 
+                if (det > 0) { return 1; }
+                // retas concorrentes
+                else if (det < 0) { return 4; }
+                // retas paralelas
+                else if (det == 0)
+                {
+                    // D^2 + E^2 > 4(A+C)F
+                    // distintas se
+                    if ((Math.Pow(coeficientes[3], 2) + Math.Pow(coeficientes[3], 2)) > 4 * (coeficientes[0] + coeficientes[2]) * coeficientes[5])
+                    {
+                        return 3;
+                    }
+                    // coincidentes se
+                    else if ((Math.Pow(coeficientes[3], 2) + Math.Pow(coeficientes[3], 2)) == 4 * (coeficientes[0] + coeficientes[2]) * coeficientes[5])
+                    {
+                        return 2;
+                    }
+                }
+            }
+            return -1;// ERRO
+        }
+```
 ## User Interface Images
+
 ### Main Menu
+
  In this window the user can enter all the coeficients of a given general conic section equation. By clicking the "Calcular" button, the mathematical algorithm will initiate.
  
-<img src="mainMenu/.PNG">
+<img src="images/mainMenu.PNG">
 
 ### Additional Information about the conic section
 
-This interface offers additional information about the conic section expressed in the given equation. For every type of conic section, a certain set of details will be shown on the screen (For exemple, in case of an Elipse, the focus and its excentricity will be shown).
+This interface offers additional information about the conic section expressed in the given equation. For every type of conic section, a certain set of details will be displayed on the screen.
+
 <img src="images/details.PNG">
 
 
 ## The Team
 
-This project was made by students of the first semester Computer Science course at USP Brazil.
+This project was developed by students of the first semester of the Computer Science course at USP Brazil.
 
 * **Giovanni Shibaki Camargo** - [giovanni-shibaki](https://github.com/giovanni-shibaki)
 
