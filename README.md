@@ -54,7 +54,7 @@ PS: all code comments in this project are probably written in Brazilian Portugue
 
 * **Relative Path**: SMA0300_Conicas\Conicas\ElementosGeometricos.cs
 * **Funcionality**: This class takes care of all conic section classification and extra information procedures
-* **Sample**: Down below you can check the function that receives the coeficients of a general conic section equation end tells you what conic it is
+* **Sample**: Down below you can check the function that receives the coeficients of a general conic section equation end tells you what conic it is. PS: The logic behind this classification function can be found at the book "Gometria Analitica - um tratamento Vetorial" by Paulo Boulos on page 458.
 ```c#
  public int whatConica(double[] coeficientes)
         {
