@@ -35,6 +35,9 @@ namespace Conicas
             this.coeficientes = coeficientes;
             funcMat = new FuncMatematicas();
             funcMat.calculaH_K(coeficientes);
+
+            //funcMat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
+            //funcMat.calculaAlCl(funcMat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]));
         }
 
         public string DetalhesConicas(double[] coeficientes)
@@ -141,19 +144,15 @@ namespace Conicas
                 detalhes= "\nFoco: F(" + h + "," + (k+p) + ")\n";
                 detalhes += "\nDiretriz r: y=" + (-p);
                 detalhes += "\n Parametro: p=" + p;
-
             }
             // se temos coeficiente de y^2, eixo de simetria em x
             else if (coeficientes[2] != 0)
             {
-
                 p = -(coeficientes[3]);
                 detalhes = "\nFoco: F(" + (h+p) + "," + k  + ")\n";
                 detalhes += "\nDiretriz r: x=" + (-p);
                 detalhes += "\n Parametro: p=" + p;
                 //detalhes += "\n Eixo: ";
-
-
             }
 
             return detalhes;
@@ -270,14 +269,14 @@ namespace Conicas
         // como extrair raio ??
         private string DetalhesCirc(double[] coeficientes)
         {
+            // coordenadas do centro
             double h = funcMat.getH();
             double k = funcMat.getK();
-
+            // coordenadas de dx e ey
             double x = funcMat.getAL();
             double y = funcMat.getCL();
 
             double raio = Math.Sqrt(Math.Pow(h-x, 2)+Math.Pow(k-y,2));
-
             double diametro = 2 * raio;
             double comprimento = 2 * Math.PI * raio;
             double area = Math.PI * Math.Pow(raio, 2);
@@ -295,7 +294,6 @@ namespace Conicas
             return detalhes;
         }
 
-        // devo mostrar distancia entre elas?
         private string DetalhesRetParal(double[] coeficientes)
         {
             string detalhes = "Não há ponto em comum entre elas.";
