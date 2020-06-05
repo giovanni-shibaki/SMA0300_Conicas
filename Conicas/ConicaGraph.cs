@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Drawing.Drawing2D;
+
 namespace Conicas
 {
     public partial class ConicaGraph : MaterialForm
@@ -21,6 +22,12 @@ namespace Conicas
             this.coeficientes = coefientes_1;
         }
 
+        // Scalling coeficients
+        private double scale_coeficient(double num)
+        {
+
+            return num;
+        }
 
         // Draw the graph.
         private void btnGraph_Click(object sender, EventArgs e)
