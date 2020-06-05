@@ -50,19 +50,19 @@ namespace Conicas
                 float A, B, C, D, E, F;
                 try
                 {
-                    A =  (float)coeficientes[0];
-                    B =  (float)coeficientes[1];
-                    C =  (float)coeficientes[2];
-                    D =  (float)coeficientes[3];
-                    E =  (float)coeficientes[4];
-                    F =  (float)coeficientes[5];
+                    //A =  (float)coeficientes[0];
+                    //B =  (float)coeficientes[1];
+                    //C =  (float)coeficientes[2];
+                    //D =  (float)coeficientes[3];
+                    //E =  (float)coeficientes[4];
+                    //F =  (float)coeficientes[5];
 
-                    //A = (float)-0.002936807;
-                    //B = (float)-0.001556237;
-                    //C = (float)0.008451099;
-                    //D = (float)0.9999999;
-                    //E = (float)-1.415946;
-                    //F = (float)-0.3586201;
+                    A = (float)-0.002936807;
+                    B = (float)-0.001556237;
+                    C = (float)0.008451099;
+                    D = (float)0.9999999;
+                    E = (float)-1.415946;
+                    F = (float)-0.3586201;
                 }
                 catch (Exception ex)
                 {

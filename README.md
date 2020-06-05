@@ -122,6 +122,11 @@ This interface offers additional information about the conic section expressed i
 
 <img src="images/details.PNG">
 
+### Function Graphing
+By using the collection of functions implemented by [http://csharphelper.com/blog/author/rod-stephens/](http://csharphelper.com/blog/author/rod-stephens/), this interface displays the conic section given the coeficients of its general equation
+
+<img src="images/graph.PNG">
+
 
 ## The Team
 
