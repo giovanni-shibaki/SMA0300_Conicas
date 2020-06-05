@@ -30,53 +30,15 @@ namespace Conicas
         double h, k;
         double[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
         FuncMatematicas funcMat;
+
         public ElementosGeometricos(double[] coeficientes)
         {
             this.coeficientes = coeficientes;
             funcMat = new FuncMatematicas();
             funcMat.calculaH_K(coeficientes);
-
-            //funcMat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
-            //funcMat.calculaAlCl(funcMat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]));
         }
 
-        public string DetalhesConicas(double[] coeficientes)
-        {
-            idConica = whatConica(coeficientes);
-            Conicas selection = (Conicas)idConica;
-
-            switch (selection)
-            {
-                case Conicas.ConjuntoVazio:
-                    return DetalhesConjVazio(coeficientes);
-
-                case Conicas.Ponto:
-                    return DetalhesPonto(coeficientes);
-
-                case Conicas.DuasRetasIdenticas:
-                    return DetalhesRetIdentica(coeficientes);
-
-                case Conicas.DuasRetasParalela:
-                    return DetalhesRetParal(coeficientes);
-
-                case Conicas.DuasRetasConcorrentes:
-                    return DetalhesRetConc(coeficientes);
-
-                case Conicas.Circulo:
-                    return DetalhesCirc(coeficientes);
-
-                case Conicas.Elipse:
-                    return DetalhesElipse(coeficientes);
-
-                case Conicas.Hiperbole:
-                    return DetalhesHiperbole(coeficientes);
-
-                case Conicas.Parabola:
-                    return DetalhesParabol(coeficientes);
-
-            }
-            return "Erro";
-        }
+        
 
         public int whatConica(double[] coeficientes)
         {
@@ -125,7 +87,47 @@ namespace Conicas
             return -1;// ERRO
         }
 
-    #region detalhes de cada conica
+        #region Auxiliary Methods
+        public string DetalhesConicas(double[] coeficientes)
+        {
+            idConica = whatConica(coeficientes);
+            Conicas selection = (Conicas)idConica;
+
+            switch (selection)
+            {
+                case Conicas.ConjuntoVazio:
+                    return DetalhesConjVazio(coeficientes);
+
+                case Conicas.Ponto:
+                    return DetalhesPonto(coeficientes);
+
+                case Conicas.DuasRetasIdenticas:
+                    return DetalhesRetIdentica(coeficientes);
+
+                case Conicas.DuasRetasParalela:
+                    return DetalhesRetParal(coeficientes);
+
+                case Conicas.DuasRetasConcorrentes:
+                    return DetalhesRetConc(coeficientes);
+
+                case Conicas.Circulo:
+                    return DetalhesCirc(coeficientes);
+
+                case Conicas.Elipse:
+                    return DetalhesElipse(coeficientes);
+
+                case Conicas.Hiperbole:
+                    return DetalhesHiperbole(coeficientes);
+
+                case Conicas.Parabola:
+                    return DetalhesParabol(coeficientes);
+
+            }
+            return "Erro";
+        }
+        #endregion
+
+        #region detalhes de cada conica
         private string DetalhesParabol(double[] coeficientes)
         {
             string detalhes=null;
