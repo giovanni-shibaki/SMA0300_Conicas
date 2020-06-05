@@ -13,7 +13,7 @@ using Expr = MathNet.Symbolics.SymbolicExpression;
 
 namespace Conicas
 {
-    class FuncMatematicas
+    public class FuncMatematicas
     {
         private double A;
         private double B;

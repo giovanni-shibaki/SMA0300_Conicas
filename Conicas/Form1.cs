@@ -11,19 +11,23 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MathNet.Numerics.LinearAlgebra.Complex;
 using MathNet.Numerics.LinearAlgebra;
+using System.Security.Cryptography;
 
 namespace Conicas
 {
     public partial class MainMenu : MaterialForm
     {
         double[] coeficientes = new double[6];
+        public FuncMatematicas funcmat = new FuncMatematicas();
+        public Vector<double> matrizG2;
+        public Vector<double> matrizG3;
+        public double det;
         public MainMenu()
         {
             InitializeComponent();
         }
         private void btnCalcula_Click(object sender, EventArgs eventArgs)
         {
-            FuncMatematicas funcmat = new FuncMatematicas();
             try
             {
                 coeficientes[0] = double.Parse(txtA.Text);
@@ -48,62 +52,90 @@ namespace Conicas
                 MessageBox.Show("Erro ao processar os campos!\nMais detalhes: " + a);
             }
 
-            bool translacao = true;
-
-            funcmat.calculaH_K(coeficientes);
-            double det = funcmat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
-            // Retorna o determinante da matriz 2x2 para ver o número de soluções
-            // Se det !=0 -> Pode ser um ponto, circulo, elipse, hibérbole ou união de duas retas concorrentes
-
-            // Se det = 0 -> 2 Casos
-            //      Se H_K for SPI -> 2 retas idênticas
-            //      Se H_K for SI -> Parábola ou conjunto vazio
-
-
-            // Se det !=0 e H_K é SI não da pra fazer a translação H e K = INFINITO
-            // G2 é a equação geral sem os termos lineares (ainda com o misto)
-            Vector<double> matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
-
-            // Com G2 é deve ser feita a rotação para eliminar o termo misto (SE HOUVER -> CHECAR PRIMEIRO)
-            funcmat.calculaAlCl(matrizG2);
-
-            if (det==0 && Double.IsInfinity(funcmat.getH()))
+            //Verifica se os termos lineares são 0, se for, pula para a rotação
+            if(funcmat.getD() == 0 && funcmat.getE()==0)
             {
-                // Não existe uma translação que pode eliminar os termos lineares
-                // Mas sempre existe uma rotação que elimina o termo quadrático misto
-                translacao = false;
-                MessageBox.Show("Não foi possível realizar a translação e remover os termos lineares!\n O sistema linear encontrado para achar os valores de H e K é incompatível!\n Iniciando rotação...", "Erro translação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Vai direto pra rotação SE TIVER O TERMO QUADRÁTICO MISTO
+                if(funcmat.getB() == 0)
+                {
+                    //Não da pra fazer rotação também, a equação já está pronta
 
-                // Já achou aL e cL, agora falta dL e eL (Através de seno e cosseno)
-                funcmat.calculaSenCos();
-                funcmat.calculaDlEl();
-                Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
-                lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
-                // Agora falta realizar a translação
-                // Com a nova equação gerada
-
-                // achar h e k:
-
-                /*double[] coeficientes = {
-                        funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF()
-                };
-                funcmat.calculaH_K(coeficientes);
-                */
-
-                //Simplificar a equação usando como centro (H,K)
+                }
+                else
+                {
+                    rotacao(false);
+                }
             }
             else
             {
+                // Fazer translação e rotação
+                if (this.translacao())
+                {
+                    // Conseguiu fazer a translação
+                    lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
+                    if (funcmat.getB() != 0) // Se não tiver termo quadrático misto não precisa fazer rotação
+                    {
+                        this.rotacao(true); // True porque a translação deu certo
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível realizar a translação e remover os termos lineares!\nO sistema linear encontrado para achar os valores de H e K é incompatível ou tem infinitas soluções!\nIniciando rotação...", "Erro translação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Não conseguiu fazer a translação
+                    if (funcmat.getB() != 0) // Se não tiver termo quadrático misto não precisa fazer rotação
+                    {
+                        this.rotacao(false);
+                    }
+                }
                 lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
             }
-
-
-
 
             //coeficientes = new_coeficientes();
             InfoConica info = new InfoConica(coeficientes);
             info.Show();
         }
+
+        private bool translacao()
+        {
+            funcmat.calculaH_K(coeficientes);
+            det = funcmat.acharSolucoesSistema(coeficientes[0], coeficientes[1], coeficientes[2]);
+            if (det == 0) // Poder ter infinitas soluções ou ser incompativel
+            {
+                if(double.IsNaN(funcmat.getH()) || double.IsNaN(funcmat.getK()))
+                {
+                    // Sistema incompativel
+                }
+                if(double.IsInfinity(funcmat.getH()) || double.IsInfinity(funcmat.getK()))
+                {
+                    // Sistema com infinitas soluções
+                }
+
+                // Não conseguiu eliminar os termos lineares
+                matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+                return false; // não conseguiu realizar a translação
+            }
+
+            matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+            return true; // Conseguiu realizar a translação
+        }
+
+        private void rotacao(bool consegiuTranslacao)
+        {
+            funcmat.calculaAlCl(matrizG2);
+            if(consegiuTranslacao) // Se não tiver D e E não precisa calcular dL e eL
+            {
+
+            }
+            else
+            {
+                // Calcula dL e eL
+                funcmat.calculaSenCos();
+                funcmat.calculaDlEl();
+            }
+            matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
+            lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+        }
+
         private string sinal(double coeficiente)
         {
             string sinal;

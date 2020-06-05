@@ -83,8 +83,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FuncMatematicas.cs" />
-    <Compile Include="FuncRotacao.cs" />
-    <Compile Include="FuncTranslacao.cs" />
     <Compile Include="InfoConica.cs">
       <SubType>Form</SubType>
     </Compile>
