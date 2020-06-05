@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoConica));
             this.lblDetalhes = new System.Windows.Forms.Label();
             this.lblClassificacao = new System.Windows.Forms.Label();
             this.lblTextoClassificacao = new System.Windows.Forms.Label();
@@ -84,6 +85,7 @@
             this.Controls.Add(this.lblTextoClassificacao);
             this.Controls.Add(this.lblClassificacao);
             this.Controls.Add(this.lblDetalhes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InfoConica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informações Adicionais Sobre a Cônica";

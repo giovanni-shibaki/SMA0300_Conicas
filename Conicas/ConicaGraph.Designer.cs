@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConicaGraph));
             this.btnGraph = new System.Windows.Forms.Button();
             this.picGraph = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).BeginInit();
@@ -65,6 +66,7 @@
             this.ClientSize = new System.Drawing.Size(533, 549);
             this.Controls.Add(this.picGraph);
             this.Controls.Add(this.btnGraph);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConicaGraph";
             this.Text = "ConicaGraph";
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).EndInit();

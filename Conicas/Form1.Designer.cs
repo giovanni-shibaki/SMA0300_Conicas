@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.label1 = new System.Windows.Forms.Label();
             this.txtA = new System.Windows.Forms.TextBox();
             this.txtB = new System.Windows.Forms.TextBox();
@@ -55,27 +56,30 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(127, 130);
+            this.label1.Location = new System.Drawing.Point(169, 160);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 20);
+            this.label1.Size = new System.Drawing.Size(31, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "x²";
             // 
             // txtA
             // 
             this.txtA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtA.Location = new System.Drawing.Point(98, 128);
+            this.txtA.Location = new System.Drawing.Point(131, 158);
+            this.txtA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtA.Name = "txtA";
-            this.txtA.Size = new System.Drawing.Size(27, 23);
+            this.txtA.Size = new System.Drawing.Size(35, 27);
             this.txtA.TabIndex = 1;
             this.txtA.Text = "0";
             // 
             // txtB
             // 
             this.txtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtB.Location = new System.Drawing.Point(167, 128);
+            this.txtB.Location = new System.Drawing.Point(223, 158);
+            this.txtB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtB.Name = "txtB";
-            this.txtB.Size = new System.Drawing.Size(27, 23);
+            this.txtB.Size = new System.Drawing.Size(35, 27);
             this.txtB.TabIndex = 2;
             this.txtB.Text = "0";
             // 
@@ -84,18 +88,20 @@
             this.lblB.AutoSize = true;
             this.lblB.BackColor = System.Drawing.Color.White;
             this.lblB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB.Location = new System.Drawing.Point(197, 130);
+            this.lblB.Location = new System.Drawing.Point(263, 160);
+            this.lblB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblB.Name = "lblB";
-            this.lblB.Size = new System.Drawing.Size(25, 20);
+            this.lblB.Size = new System.Drawing.Size(34, 25);
             this.lblB.TabIndex = 2;
             this.lblB.Text = "xy";
             // 
             // txtF
             // 
             this.txtF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtF.Location = new System.Drawing.Point(451, 128);
+            this.txtF.Location = new System.Drawing.Point(601, 158);
+            this.txtF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtF.Name = "txtF";
-            this.txtF.Size = new System.Drawing.Size(27, 23);
+            this.txtF.Size = new System.Drawing.Size(35, 27);
             this.txtF.TabIndex = 6;
             this.txtF.Text = "0";
             // 
@@ -103,18 +109,20 @@
             // 
             this.lvlF.AutoSize = true;
             this.lvlF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvlF.Location = new System.Drawing.Point(481, 131);
+            this.lvlF.Location = new System.Drawing.Point(641, 161);
+            this.lvlF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlF.Name = "lvlF";
-            this.lvlF.Size = new System.Drawing.Size(145, 17);
+            this.lvlF.Size = new System.Drawing.Size(168, 20);
             this.lvlF.TabIndex = 6;
             this.lvlF.Text = "(termo independente)";
             // 
             // txtE
             // 
             this.txtE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtE.Location = new System.Drawing.Point(377, 128);
+            this.txtE.Location = new System.Drawing.Point(503, 158);
+            this.txtE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtE.Name = "txtE";
-            this.txtE.Size = new System.Drawing.Size(27, 23);
+            this.txtE.Size = new System.Drawing.Size(35, 27);
             this.txtE.TabIndex = 5;
             this.txtE.Text = "0";
             // 
@@ -123,18 +131,20 @@
             this.lblE.AutoSize = true;
             this.lblE.BackColor = System.Drawing.Color.White;
             this.lblE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblE.Location = new System.Drawing.Point(406, 130);
+            this.lblE.Location = new System.Drawing.Point(541, 160);
+            this.lblE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblE.Name = "lblE";
-            this.lblE.Size = new System.Drawing.Size(17, 20);
+            this.lblE.Size = new System.Drawing.Size(23, 25);
             this.lblE.TabIndex = 8;
             this.lblE.Text = "y";
             // 
             // txtD
             // 
             this.txtD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtD.Location = new System.Drawing.Point(308, 128);
+            this.txtD.Location = new System.Drawing.Point(411, 158);
+            this.txtD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtD.Name = "txtD";
-            this.txtD.Size = new System.Drawing.Size(27, 23);
+            this.txtD.Size = new System.Drawing.Size(35, 27);
             this.txtD.TabIndex = 4;
             this.txtD.Text = "0";
             // 
@@ -143,18 +153,20 @@
             this.lblD.AutoSize = true;
             this.lblD.BackColor = System.Drawing.Color.White;
             this.lblD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblD.Location = new System.Drawing.Point(337, 130);
+            this.lblD.Location = new System.Drawing.Point(449, 160);
+            this.lblD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblD.Name = "lblD";
-            this.lblD.Size = new System.Drawing.Size(17, 20);
+            this.lblD.Size = new System.Drawing.Size(23, 25);
             this.lblD.TabIndex = 10;
             this.lblD.Text = "x";
             // 
             // txtC
             // 
             this.txtC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtC.Location = new System.Drawing.Point(238, 128);
+            this.txtC.Location = new System.Drawing.Point(317, 158);
+            this.txtC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtC.Name = "txtC";
-            this.txtC.Size = new System.Drawing.Size(27, 23);
+            this.txtC.Size = new System.Drawing.Size(35, 27);
             this.txtC.TabIndex = 3;
             this.txtC.Text = "0";
             // 
@@ -163,9 +175,10 @@
             this.lblC.AutoSize = true;
             this.lblC.BackColor = System.Drawing.Color.White;
             this.lblC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC.Location = new System.Drawing.Point(267, 130);
+            this.lblC.Location = new System.Drawing.Point(356, 160);
+            this.lblC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblC.Name = "lblC";
-            this.lblC.Size = new System.Drawing.Size(23, 20);
+            this.lblC.Size = new System.Drawing.Size(31, 25);
             this.lblC.TabIndex = 12;
             this.lblC.Text = "y²";
             // 
@@ -174,18 +187,20 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(85, 76);
+            this.label3.Location = new System.Drawing.Point(113, 94);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(511, 20);
+            this.label3.Size = new System.Drawing.Size(615, 25);
             this.label3.TabIndex = 14;
             this.label3.Text = "Insira abaixo os termos da Equação Geral da Cônica Desejada";
             // 
             // btnCalcula
             // 
             this.btnCalcula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcula.Location = new System.Drawing.Point(274, 288);
+            this.btnCalcula.Location = new System.Drawing.Point(365, 354);
+            this.btnCalcula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalcula.Name = "btnCalcula";
-            this.btnCalcula.Size = new System.Drawing.Size(92, 40);
+            this.btnCalcula.Size = new System.Drawing.Size(123, 49);
             this.btnCalcula.TabIndex = 15;
             this.btnCalcula.Text = "Calcular";
             this.btnCalcula.UseVisualStyleBackColor = true;
@@ -195,9 +210,10 @@
             // 
             this.lblEquacaoAtualTexto.AutoSize = true;
             this.lblEquacaoAtualTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquacaoAtualTexto.Location = new System.Drawing.Point(68, 189);
+            this.lblEquacaoAtualTexto.Location = new System.Drawing.Point(91, 233);
+            this.lblEquacaoAtualTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEquacaoAtualTexto.Name = "lblEquacaoAtualTexto";
-            this.lblEquacaoAtualTexto.Size = new System.Drawing.Size(118, 20);
+            this.lblEquacaoAtualTexto.Size = new System.Drawing.Size(146, 25);
             this.lblEquacaoAtualTexto.TabIndex = 17;
             this.lblEquacaoAtualTexto.Text = "Equação Atual:";
             // 
@@ -205,9 +221,10 @@
             // 
             this.lblEquacaoReduzidaText.AutoSize = true;
             this.lblEquacaoReduzidaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquacaoReduzidaText.Location = new System.Drawing.Point(68, 233);
+            this.lblEquacaoReduzidaText.Location = new System.Drawing.Point(91, 287);
+            this.lblEquacaoReduzidaText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEquacaoReduzidaText.Name = "lblEquacaoReduzidaText";
-            this.lblEquacaoReduzidaText.Size = new System.Drawing.Size(142, 20);
+            this.lblEquacaoReduzidaText.Size = new System.Drawing.Size(176, 25);
             this.lblEquacaoReduzidaText.TabIndex = 18;
             this.lblEquacaoReduzidaText.Text = "Equação reduzida:";
             // 
@@ -215,10 +232,9 @@
             // 
             this.lblEquacaoAtual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblEquacaoAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquacaoAtual.Location = new System.Drawing.Point(201, 195);
-            this.lblEquacaoAtual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEquacaoAtual.Location = new System.Drawing.Point(268, 240);
             this.lblEquacaoAtual.Name = "lblEquacaoAtual";
-            this.lblEquacaoAtual.Size = new System.Drawing.Size(276, 21);
+            this.lblEquacaoAtual.Size = new System.Drawing.Size(368, 26);
             this.lblEquacaoAtual.TabIndex = 19;
             this.lblEquacaoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -226,19 +242,19 @@
             // 
             this.lblEquacaoReduzida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblEquacaoReduzida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquacaoReduzida.Location = new System.Drawing.Point(201, 233);
-            this.lblEquacaoReduzida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEquacaoReduzida.Location = new System.Drawing.Point(268, 287);
             this.lblEquacaoReduzida.Name = "lblEquacaoReduzida";
-            this.lblEquacaoReduzida.Size = new System.Drawing.Size(276, 21);
+            this.lblEquacaoReduzida.Size = new System.Drawing.Size(368, 26);
             this.lblEquacaoReduzida.TabIndex = 21;
             this.lblEquacaoReduzida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(26, 120);
+            this.btnClear.Location = new System.Drawing.Point(35, 148);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(56, 40);
+            this.btnClear.Size = new System.Drawing.Size(75, 49);
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "Limpar";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -246,9 +262,10 @@
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(521, 302);
+            this.btnInfo.Location = new System.Drawing.Point(695, 372);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(111, 26);
+            this.btnInfo.Size = new System.Drawing.Size(148, 32);
             this.btnInfo.TabIndex = 23;
             this.btnInfo.Text = "Sobre a Equipe";
             this.btnInfo.UseVisualStyleBackColor = true;
@@ -256,10 +273,10 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(644, 336);
+            this.ClientSize = new System.Drawing.Size(859, 414);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblEquacaoReduzida);
@@ -280,6 +297,8 @@
             this.Controls.Add(this.lblB);
             this.Controls.Add(this.txtA);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
