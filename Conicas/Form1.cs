@@ -78,7 +78,7 @@ namespace Conicas
                 funcmat.calculaSenCos();
                 funcmat.calculaDlEl();
                 Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
-                funcmat.mostraNovaEquacao2();
+                lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
                 // Agora falta realizar a translação
                 // Com a nova equação gerada
 
@@ -94,7 +94,7 @@ namespace Conicas
             }
             else
             {
-                lblEquacaoAtual.Text = funcmat.mostraNovaEquacao();
+                lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
             }
 
 
@@ -142,6 +142,11 @@ namespace Conicas
             txtE.Text = "0";
             txtF.Text = "0";
             txtA.Focus();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Trabalho realizado por:\n\nGiovanni Shibaki - 11796444\nPedro Kenzo - 11796451\nBCC 020\n\nMatéria SMA0300 - Geometria Analítica","Sobre a equipe", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
     }
 }
