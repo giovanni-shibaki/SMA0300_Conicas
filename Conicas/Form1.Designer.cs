@@ -47,6 +47,7 @@
             this.lblEquacaoAtual = new System.Windows.Forms.Label();
             this.lblEquacaoReduzida = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -173,7 +174,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(85, 67);
+            this.label3.Location = new System.Drawing.Point(85, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(511, 20);
             this.label3.TabIndex = 14;
@@ -181,6 +182,7 @@
             // 
             // btnCalcula
             // 
+            this.btnCalcula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcula.Location = new System.Drawing.Point(274, 288);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(92, 40);
@@ -242,12 +244,23 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnLimpar);
             // 
+            // btnInfo
+            // 
+            this.btnInfo.Location = new System.Drawing.Point(521, 302);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(111, 26);
+            this.btnInfo.TabIndex = 23;
+            this.btnInfo.Text = "Sobre a Equipe";
+            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(644, 336);
+            this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblEquacaoReduzida);
             this.Controls.Add(this.lblEquacaoAtual);
@@ -297,6 +310,7 @@
         private System.Windows.Forms.Label lblEquacaoAtual;
         private System.Windows.Forms.Label lblEquacaoReduzida;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnInfo;
     }
 }
 

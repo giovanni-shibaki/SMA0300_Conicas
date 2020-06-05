@@ -143,5 +143,10 @@ namespace Conicas
             txtF.Text = "0";
             txtA.Focus();
         }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Trabalho realizado por:\n\nGiovanni Shibaki - 11796444\nPedro Kenzo - 11796451\nBCC 020\n\nMatéria SMA0300 - Geometria Analítica","Sobre a equipe", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
     }
 }
