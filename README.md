@@ -12,7 +12,41 @@ Due to the fact that this application is based on Winforms C#, it can only run i
 ### FuncMatematicas.cs
 * **Relative Path**: SMA0300_Conicas\Conicas\FuncMatematicas.cs
 * **Funcionality**: Handles all rotation and translation procedures given the coeficients of the conic section equation
-* **Sample**: The function below 
+* **Sample**: The function below finds the center of a conic section for translation purposes
+```c#
+        public void calculaH_K(double[] coeficientes)
+        {
+            double a = coeficientes[0];
+            double b = coeficientes[1];
+            double c = coeficientes[2];
+            double d = coeficientes[3];
+            double e = coeficientes[4];
+            double f = coeficientes[5];
+
+            var A = Matrix<double>.Build.DenseOfArray(new double[,]
+            {
+                { Convert.ToInt32(a), Convert.ToInt32(b/2) },
+                { Convert.ToInt32(b/2), Convert.ToInt32(c) },
+            });
+            MessageBox.Show("Matriz para calcular H e K: "+A.ToString());
+            var B = Vector<double>.Build.Dense(new double[] { -(d/2), -(e/2) });
+            var x = A.Solve(B);
+            MessageBox.Show("H e K: "+x.ToString());
+            h = x[0];
+            k = x[1];
+
+            if(!Double.IsInfinity(getH())) // Se o determinante deu diferente de zero foi possível realizar a translação
+            {
+                // Achar o novo termo independente da equação: (p.96)
+                setF((getD() / 2) * getH() + (getE() / 2) * getK() + getF());
+
+                var eq = Infix.ParseOrThrow(getA().ToString() + "*u*u+" + getB().ToString() + "*u*v+" + getC().ToString() + "*v*v+"+ getF().ToString());
+                var expanded = Algebraic.Expand(eq);
+                MessageBox.Show("Translação realizada!\nNova equação da cônica:\n"+Infix.FormatStrict(expanded)+" ","Translação Concluida",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Iniciando Rotação para elimianar o termo quadrático misto", "Iniciando Rotação", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+```
 
 
 ### ElementosGeometricos.cs
