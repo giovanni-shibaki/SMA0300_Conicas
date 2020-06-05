@@ -329,16 +329,16 @@ namespace Conicas
         }
 
         //mostraNovaEquacao2 retorna a equação após fazer a rotação e a translação conforme o caso na pag 99 das notas de aula
-        public void mostraNovaEquacao2()
+        public string mostraNovaEquacao2()
         {
             // O termo independente continua o mesmo pois não foi realizada a translação
 
             var eq = Infix.ParseOrThrow(getAL().ToString()+"*u*u+"+getBL().ToString()+"*u*v+"+getCL().ToString()+"*v*v+"+ getDL().ToString()+"*u+"+getEL().ToString()+"*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
             MessageBox.Show("Equação Geral: "+Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            
-            
 
+
+            return Infix.FormatStrict(expanded).ToString();
             // B = 0
             // Agora simplificar a equação
         }

@@ -78,7 +78,7 @@ namespace Conicas
                 funcmat.calculaSenCos();
                 funcmat.calculaDlEl();
                 Vector<double> matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(),(double) 0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
-                funcmat.mostraNovaEquacao2();
+                lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
                 // Agora falta realizar a translação
                 // Com a nova equação gerada
 
@@ -94,7 +94,7 @@ namespace Conicas
             }
             else
             {
-                lblEquacaoAtual.Text = funcmat.mostraNovaEquacao();
+                lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
             }
 
 
