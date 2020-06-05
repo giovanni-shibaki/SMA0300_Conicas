@@ -122,11 +122,41 @@ namespace Conicas
             return -1;// ERRO
         }
 
-        #region detalhes de cada conica
+    #region detalhes de cada conica
         private string DetalhesParabol(double[] coeficientes)
         {
-            //
-            throw new NotImplementedException();
+            string detalhes=null;
+
+            // C(X,Y)
+            double h = funcMat.getH();
+            double k = funcMat.getK();
+
+            double p;
+            // vamos verificar onde esta o eixo da parabola
+
+            // se temos coeficiente de x^2, eixo de simetria em y
+            if (coeficientes[0] != 0)
+            {
+                p = -(coeficientes[4]);
+                detalhes= "\nFoco: F(" + h + "," + (k+p) + ")\n";
+                detalhes += "\nDiretriz r: y=" + (-p);
+                detalhes += "\n Parametro: p=" + p;
+
+            }
+            // se temos coeficiente de y^2, eixo de simetria em x
+            else if (coeficientes[2] != 0)
+            {
+
+                p = -(coeficientes[3]);
+                detalhes = "\nFoco: F(" + (h+p) + "," + k  + ")\n";
+                detalhes += "\nDiretriz r: x=" + (-p);
+                detalhes += "\n Parametro: p=" + p;
+                //detalhes += "\n Eixo: ";
+
+
+            }
+
+            return detalhes;
         }
 
         private string DetalhesHiperbole(double[] coeficientes)
@@ -136,7 +166,7 @@ namespace Conicas
             double Y = funcMat.getK();
             double a = 0; // semi-eixo maior
             double b = 0; // semi-eixo menor
-            double c = 0;  // semi distancia focal
+            double c = 0; // semi distancia focal
             // Centro
             string detalhes = "\nCentro: C(" + X + "," + Y + ")\n";
             // excentricidade
@@ -237,17 +267,23 @@ namespace Conicas
             return detalhes;
         }
 
-        // como extrair raio da eq simplificada???
+        // como extrair raio ??
         private string DetalhesCirc(double[] coeficientes)
         {
-            double raio = (Math.Sqrt(Math.Abs(coeficientes[5])));
+            double h = funcMat.getH();
+            double k = funcMat.getK();
+
+            double x = funcMat.getAL();
+            double y = funcMat.getCL();
+
+            double raio = Math.Sqrt(Math.Pow(h-x, 2)+Math.Pow(k-y,2));
+
             double diametro = 2 * raio;
             double comprimento = 2 * Math.PI * raio;
             double area = Math.PI * Math.Pow(raio, 2);
-            double X = funcMat.getH();
-            double Y= funcMat.getK();
+            
             //raio, centro, diametro, comprimento
-            string detalhes = "Centro: C(" + X + "," + Y + ")\nRaio:  "+raio+"\nDiametro: "+diametro+ "\nComprimento: "+comprimento+"\nArea: "+area;
+            string detalhes = "Centro: C(" + h + "," + k + ")\nRaio:  "+raio+"\nDiametro: "+diametro+ "\nComprimento: "+comprimento+"\nArea: "+area;
             return detalhes;
         }
         
@@ -286,5 +322,6 @@ namespace Conicas
             return detalhes;
         }
     }
+    #endregion
+
 }       
-#endregion

@@ -278,6 +278,7 @@ namespace Conicas
 
 
             //MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+            
             var eq = Infix.ParseOrThrow(getAL().ToString() + "*u*u+" + getBL().ToString() + "*u*v+" + getCL().ToString() + "*v*v+" + getDL().ToString() + "*u+" + getEL().ToString() + "*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
             MessageBox.Show("Equação Geral: " + Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

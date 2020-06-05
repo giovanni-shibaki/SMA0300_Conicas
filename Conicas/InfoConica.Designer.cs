@@ -47,9 +47,9 @@
             // 
             this.lblClassificacao.BackColor = System.Drawing.SystemColors.Control;
             this.lblClassificacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassificacao.Location = new System.Drawing.Point(178, 78);
+            this.lblClassificacao.Location = new System.Drawing.Point(206, 82);
             this.lblClassificacao.Name = "lblClassificacao";
-            this.lblClassificacao.Size = new System.Drawing.Size(612, 26);
+            this.lblClassificacao.Size = new System.Drawing.Size(584, 26);
             this.lblClassificacao.TabIndex = 1;
             this.lblClassificacao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -58,11 +58,11 @@
             this.lblTextoClassificacao.AutoSize = true;
             this.lblTextoClassificacao.BackColor = System.Drawing.Color.White;
             this.lblTextoClassificacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoClassificacao.Location = new System.Drawing.Point(29, 78);
+            this.lblTextoClassificacao.Location = new System.Drawing.Point(30, 83);
             this.lblTextoClassificacao.Name = "lblTextoClassificacao";
-            this.lblTextoClassificacao.Size = new System.Drawing.Size(143, 24);
+            this.lblTextoClassificacao.Size = new System.Drawing.Size(137, 24);
             this.lblTextoClassificacao.TabIndex = 2;
-            this.lblTextoClassificacao.Text = "Classificação: ";
+            this.lblTextoClassificacao.Text = "Classificação:";
             // 
             // label1
             // 
@@ -85,6 +85,7 @@
             this.Controls.Add(this.lblClassificacao);
             this.Controls.Add(this.lblDetalhes);
             this.Name = "InfoConica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informações Adicionais Sobre a Cônica";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InfoConica_FormClosing);
             this.ResumeLayout(false);
