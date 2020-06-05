@@ -6,10 +6,13 @@ In order to execute Linear algebra operations involving matrices, we used MathNe
 
 ## Running the Application
 
-Due to the fact that this application is based on Winforms C#, it can only run in a Windows-based environment. If on windows, just clone this repository and run the project on Visual Studio 2019 (preferably).
+Due to the fact that this application is based on Winforms C#, it can only run in a Windows-based environment. If on windows, just clone this repository and run the project on Visual Studio 2019 (preferably). If you just want to see the software running, search for its .exe file at SMA0300_Conicas\Conicas\bin\Debug\Conicas.exe
+
 ## Most important pieces of code
+PS: all code comments in this project are probably written in Brazilian Portuguese. For any questions regarding the software, don't hesitate to contact me or [giovanni-shibaki](https://github.com/giovanni-shibaki)
 
 ### FuncMatematicas.cs
+
 * **Relative Path**: SMA0300_Conicas\Conicas\FuncMatematicas.cs
 * **Funcionality**: Handles all rotation and translation procedures given the coeficients of the conic section equation
 * **Sample**: The function below finds the center of a conic section for translation purposes
@@ -47,9 +50,8 @@ Due to the fact that this application is based on Winforms C#, it can only run i
             }
         }
 ```
-
-
 ### ElementosGeometricos.cs
+
 * **Relative Path**: SMA0300_Conicas\Conicas\ElementosGeometricos.cs
 * **Funcionality**: This class takes care of all conic section classification and extra information procedures
 * **Sample**: Down below you can check the function that receives the coeficients of a general conic section equation end tells you what conic it is
@@ -101,6 +103,11 @@ Due to the fact that this application is based on Winforms C#, it can only run i
             return -1;// ERRO
         }
 ```
+### ConicaGraph.cs
+* **Relative Path**: SMA0300_Conicas\Conicas\ConicaGraph.cs
+* **Funcionality**: Draws a conic section from its polynomial equation
+* **Sample**: [This is an adaptation of a polynomial equation drawing software by Rod Stephens](http://csharphelper.com/blog/2014/11/draw-a-conic-section-from-its-polynomial-equation-in-c/)
+
 ## User Interface Images
 
 ### Main Menu
