@@ -39,7 +39,6 @@ namespace Conicas
         }
 
         
-
         public int whatConica(double[] coeficientes)
         {
             // determinante da matrix de coeficientes 3x3
