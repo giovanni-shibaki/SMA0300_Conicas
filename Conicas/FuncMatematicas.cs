@@ -288,32 +288,18 @@ namespace Conicas
 
 
             //MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
-
-
-            
-            double max = getF();
-            /*double []valores =
+            double div = (double)Euclid.LeastCommonMultiple((long)getAL(), (long)getBL(), (long)getCL(), (long)getDL(), (long)getEL(), (long)getF());
+            MessageBox.Show("MMC: " + div);
+            if (div != null && div != 0)
             {
-                getAL(), getBL(), getCL(), getDL(), getEL(), getF()
-            };
-            for(int i=0;i<6;i++)
-            {
-                if(valores[i]>max)
-                {
-                    max = valores[i];
-                }
-            }
-            MessageBox.Show("Vetor = " + valores);*/
-            /*double nA, nB, nC, nD, nE; //Denominadores dos termos
-            nA = max / getAL();
-            nB = max / getB();
-            nC = max / getCL();
-            nD = max / getDL();
-            nE = max / getEL();
-            // simplificar a equação
-            MessageBox.Show("Max = " + max);
-            var eq = Infix.ParseOrThrow("u*u/"+nA+ "+u*v/" + nB+ "+v*v/" + nC+ "+u/" + nD+ "+v/" + nE+ "= 1");
-            var expanded = Algebraic.Expand(eq);*/
+                setAL(getAL() / div);
+                setBL(getBL() / div);
+                setCL(getCL() / div);
+                setDL(getDL() / div);
+                setEL(getEL() / div);
+                setF(getF() / div);
+            } // Simplifica a equação com o maior divisor entre eles
+
 
             var eq = Infix.ParseOrThrow(getAL().ToString() + "*u*u+" + getBL().ToString() + "*u*v+" + getCL().ToString() + "*v*v+" + getDL().ToString() + "*u+" + getEL().ToString() + "*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
@@ -370,31 +356,19 @@ namespace Conicas
         public string mostraNovaEquacao2()
         {
             // O termo independente continua o mesmo pois não foi realizada a translação
-
+            double div = (double) Euclid.LeastCommonMultiple((long)getAL(), (long)getBL(), (long)getCL(), (long)getDL(), (long)getEL(), (long)getF());
+            MessageBox.Show("MMC: "+div);
+            if (div != null && div !=0)
+            {
+                setAL(getAL() / div);
+                setBL(getBL() / div);
+                setCL(getCL() / div);
+                setDL(getDL() / div);
+                setEL(getEL() / div);
+                setF(getF() / div);
+            } // Simplifica a equação com o maior divisor entre eles
             var eq = Infix.ParseOrThrow(getAL().ToString()+"*u*u+"+getBL().ToString()+"*u*v+"+getCL().ToString()+"*v*v+"+ getDL().ToString()+"*u+"+getEL().ToString()+"*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
-            /*double max = 0;
-            double[] valores =
-            {
-                getAL(), getBL(), getCL(), getDL(), getEL(), getF()
-            };
-            for (int i = 0; i < 6; i++)
-            {
-                if (valores[i] > max)
-                {
-                    max = valores[i];
-                }
-            }
-            double nA, nB, nC, nD, nE, nF; //Denominadores dos termos
-            nA = max / getAL();
-            nB = max / getBL();
-            nC = max / getCL();
-            nD = max / getDL();
-            nE = max / getEL();
-            // simplificar a equação
-            MessageBox.Show("Max = " + max);
-            var eq = Infix.ParseOrThrow("u*u/" + nA + "+u*v/" + nB + "+v*v/" + nC + "+u/" + nD + "+v/" + nE + "= 1");
-            var expanded = Algebraic.Expand(eq);*/
             MessageBox.Show("Equação Geral: "+Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
