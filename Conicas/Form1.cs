@@ -201,6 +201,7 @@ namespace Conicas
                     {
                         this.rotacao(true); // True porque a translação deu certo
                     }
+
                 }
                 else
                 {
@@ -221,9 +222,11 @@ namespace Conicas
                             coeficientes[3] = funcmat.getDL();
                             coeficientes[4] = funcmat.getEL();
                             coeficientes[5] = funcmat.getF();
+
                             if (this.translacao())
                             {
                                 lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
+
                             }
                             else
                             {
@@ -240,10 +243,18 @@ namespace Conicas
                     }
                 }
                 lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
-                // colcoa as informacoes para serem processadas pelo form
-                InfoConica info = new InfoConica(coeficientes);
-                info.Show();
-            }      
+            }
+            // colcoa as informacoes para serem processadas pelo form
+
+            // Atualizando os coeficientes
+            coeficientes[0] = funcmat.getAL();
+            coeficientes[1] = funcmat.getBL();
+            coeficientes[2] = funcmat.getCL();
+            coeficientes[3] = funcmat.getDL();
+            coeficientes[4] = funcmat.getEL();
+            coeficientes[5] = funcmat.getF();
+            InfoConica info = new InfoConica(coeficientes);
+            info.Show();
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
