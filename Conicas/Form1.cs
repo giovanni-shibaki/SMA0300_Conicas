@@ -12,6 +12,8 @@ using MaterialSkin.Controls;
 using MathNet.Numerics.LinearAlgebra.Complex;
 using MathNet.Numerics.LinearAlgebra;
 using System.Security.Cryptography;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace Conicas
 {
@@ -139,7 +141,7 @@ namespace Conicas
         private string sinal(double coeficiente)
         {
             string sinal;
-            return sinal = (coeficiente > 0) ? " + " : " ";
+            return sinal = (coeficiente > 0) ? "+":null;
         }
         private string printEqAtual(double[] coeficientes)
         {
@@ -154,6 +156,22 @@ namespace Conicas
             return ret;
         }
 
+        private string wolframFormat(double[] coeficientes)
+        {
+            string ret = null;
+
+            if (coeficientes[0] != 0) ret =   coeficientes[0].ToString() + "x²+%2B+";
+            if (coeficientes[1] != 0) ret +=  coeficientes[1].ToString() + "xy+%2B+";
+            if (coeficientes[2] != 0) ret +=  coeficientes[2].ToString() + "y²+%2B+";
+            if (coeficientes[3] != 0) ret +=  coeficientes[3].ToString() + "x+%2B+";
+            if (coeficientes[4] != 0) ret +=  coeficientes[4].ToString() + "y+%2B+";
+            if (coeficientes[5] != 0) ret +=  coeficientes[5].ToString() + "+%2B+";
+                                      ret += "=0";
+
+
+            return ret;
+        }
+        #region Events
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             var res = MessageBox.Show(this, "Deseja Realmente Sair?", "Sair",
@@ -180,5 +198,30 @@ namespace Conicas
         {
             MessageBox.Show("Trabalho realizado por:\n\nGiovanni Shibaki - 11796444\nPedro Kenzo - 11796451\nBCC 020\n\nMatéria SMA0300 - Geometria Analítica","Sobre a equipe", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
+
+       
+        private void btWebPlot_Click(object sender, EventArgs e)
+        {
+            // lendo texto das textboxes
+            coeficientes[0] = double.Parse(txtA.Text);
+            coeficientes[1] = double.Parse(txtB.Text);
+            coeficientes[2] = double.Parse(txtC.Text);
+            coeficientes[3] = double.Parse(txtD.Text);
+            coeficientes[4] = double.Parse(txtE.Text);
+            coeficientes[5] = double.Parse(txtF.Text);
+
+            //  a url da equacao sera concatenada ao wolfram
+            string url;
+            url = "https://www.wolframalpha.com/input/?i="+wolframFormat(this.coeficientes);
+
+            // prodecimento de Dialog Box
+            var res = MessageBox.Show(this, "O Navegador padrão aberto será aberto para isso, ok?", "Web Plotting",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (res == DialogResult.OK)
+            {
+                System.Diagnostics.Process.Start("cmd", "/C start" + " " + url);
+            }
+        }
+    #endregion
     }
 }

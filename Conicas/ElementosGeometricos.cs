@@ -25,7 +25,7 @@ namespace Conicas
             Hiperbole,
             Parabola
         }
-        // meu kakaka
+
         int idConica;
         double h, k;
         double[] coeficientes;// recebe a,b,c,d,e,f--> avaliemos a eq geral
@@ -224,7 +224,7 @@ namespace Conicas
 
             // excentricidade
             double exct; 
-            string detalhes ="\nCentro: C(" + X + "," + Y + ")\n";
+            string detalhes ="Centro: C(" + X + "," + Y + ")";
 
             // verificando onde esta o eixo maior
             double a = 0; // semi-eixo maior
@@ -240,12 +240,12 @@ namespace Conicas
 
                 // excentricidade
                 exct = c / a;
-                detalhes += "Excentricidade: " + exct;
+                detalhes += "\nExcentricidade: " + exct;
                 // Focos
-                detalhes += "Focos:  F1(" + X + "," + (c + Y) + ") e" + "F2(" + X + ", -" + (c + Y) + ")";
+                detalhes += "\nFocos:  F1(" + X + "," + (c + Y) + ") e" + "F2(" + X + ", -" + (c + Y) + ")";
 
                 // Vertices
-                detalhes += "Vertices:  V1(" + X + "," + (a + Y) + ") e" + "V2(" + X + ", -" +(a + Y)  + ")";
+                detalhes += "\nVertices:  V1(" + X + "," + (a + Y) + ") e" + "V2(" + X + ", -" +(a + Y)  + ")";
 
             }
             // elipse estara deitada no eixo X, pois a>b
@@ -267,12 +267,12 @@ namespace Conicas
             return detalhes;
         }
 
-        // como extrair raio ??
         private string DetalhesCirc(double[] coeficientes)
         {
             // coordenadas do centro
             double h = funcMat.getH();
             double k = funcMat.getK();
+
             // coordenadas de dx e ey
             double x = funcMat.getAL();
             double y = funcMat.getCL();

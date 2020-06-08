@@ -49,6 +49,7 @@
             this.lblEquacaoReduzida = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
+            this.btWebPlot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +68,7 @@
             // 
             this.txtA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtA.Location = new System.Drawing.Point(131, 158);
-            this.txtA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtA.Margin = new System.Windows.Forms.Padding(4);
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(35, 27);
             this.txtA.TabIndex = 1;
@@ -77,7 +78,7 @@
             // 
             this.txtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtB.Location = new System.Drawing.Point(223, 158);
-            this.txtB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtB.Margin = new System.Windows.Forms.Padding(4);
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(35, 27);
             this.txtB.TabIndex = 2;
@@ -99,7 +100,7 @@
             // 
             this.txtF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtF.Location = new System.Drawing.Point(601, 158);
-            this.txtF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtF.Margin = new System.Windows.Forms.Padding(4);
             this.txtF.Name = "txtF";
             this.txtF.Size = new System.Drawing.Size(35, 27);
             this.txtF.TabIndex = 6;
@@ -120,7 +121,7 @@
             // 
             this.txtE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtE.Location = new System.Drawing.Point(503, 158);
-            this.txtE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtE.Margin = new System.Windows.Forms.Padding(4);
             this.txtE.Name = "txtE";
             this.txtE.Size = new System.Drawing.Size(35, 27);
             this.txtE.TabIndex = 5;
@@ -142,7 +143,7 @@
             // 
             this.txtD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtD.Location = new System.Drawing.Point(411, 158);
-            this.txtD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtD.Margin = new System.Windows.Forms.Padding(4);
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(35, 27);
             this.txtD.TabIndex = 4;
@@ -164,7 +165,7 @@
             // 
             this.txtC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtC.Location = new System.Drawing.Point(317, 158);
-            this.txtC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtC.Margin = new System.Windows.Forms.Padding(4);
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(35, 27);
             this.txtC.TabIndex = 3;
@@ -197,8 +198,8 @@
             // btnCalcula
             // 
             this.btnCalcula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcula.Location = new System.Drawing.Point(365, 354);
-            this.btnCalcula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalcula.Location = new System.Drawing.Point(382, 358);
+            this.btnCalcula.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(123, 49);
             this.btnCalcula.TabIndex = 15;
@@ -252,7 +253,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.Location = new System.Drawing.Point(35, 148);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 49);
             this.btnClear.TabIndex = 22;
@@ -262,21 +263,39 @@
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(695, 372);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnInfo.Location = new System.Drawing.Point(767, 78);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(148, 32);
+            this.btnInfo.Size = new System.Drawing.Size(79, 32);
             this.btnInfo.TabIndex = 23;
-            this.btnInfo.Text = "Sobre a Equipe";
-            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Text = "Sobre";
+            this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // btWebPlot
+            // 
+            this.btWebPlot.BackColor = System.Drawing.Color.Coral;
+            this.btWebPlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btWebPlot.ForeColor = System.Drawing.Color.White;
+            this.btWebPlot.Location = new System.Drawing.Point(35, 358);
+            this.btWebPlot.Margin = new System.Windows.Forms.Padding(4);
+            this.btWebPlot.Name = "btWebPlot";
+            this.btWebPlot.Size = new System.Drawing.Size(75, 49);
+            this.btWebPlot.TabIndex = 24;
+            this.btWebPlot.Text = "Plotar";
+            this.btWebPlot.UseVisualStyleBackColor = false;
+            this.btWebPlot.Click += new System.EventHandler(this.btWebPlot_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(859, 414);
+            this.ClientSize = new System.Drawing.Size(859, 420);
+            this.Controls.Add(this.btWebPlot);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblEquacaoReduzida);
@@ -298,7 +317,7 @@
             this.Controls.Add(this.txtA);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
@@ -330,6 +349,7 @@
         private System.Windows.Forms.Label lblEquacaoReduzida;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button btWebPlot;
     }
 }
 
