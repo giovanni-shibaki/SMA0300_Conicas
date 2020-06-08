@@ -43,6 +43,12 @@ namespace Conicas
                 funcmat.setE(coeficientes[4]);
                 funcmat.setF(coeficientes[5]);
 
+                funcmat.setAL(coeficientes[0]);
+                funcmat.setBL(coeficientes[1]);
+                funcmat.setCL(coeficientes[2]);
+                funcmat.setDL(coeficientes[3]);
+                funcmat.setEL(coeficientes[4]);
+
                 lblEquacaoAtual.Text = printEqAtual(coeficientes);
                 ConicaGraph conica = new ConicaGraph(coeficientes);
                 conica.Show();
@@ -59,11 +65,21 @@ namespace Conicas
                 if(funcmat.getB() == 0)
                 {
                     //Não da pra fazer rotação também, a equação já está pronta
-
                 }
                 else
                 {
-                    rotacao(false);
+                    matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
+                    if (this.rotacao(false))
+                    {
+                        matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
+                        lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+                    }
+                    else
+                    {
+                        // Não realizou a rotação, então não elimina o termo quadrático misto
+                        matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), funcmat.getB(), funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
+                        lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+                    }
                 }
             }
             else
@@ -84,7 +100,17 @@ namespace Conicas
                     // Não conseguiu fazer a translação
                     if (funcmat.getB() != 0) // Se não tiver termo quadrático misto não precisa fazer rotação
                     {
-                        this.rotacao(false);
+                        if(this.rotacao(false))
+                        {
+                            matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
+                            lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+                        }
+                        else
+                        {
+                            // Não realizou a rotação, então não elimina o termo quadrático misto
+                            matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), funcmat.getB(), funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
+                            lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+                        }
                     }
                 }
                 lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
@@ -116,24 +142,34 @@ namespace Conicas
             }
 
             matrizG2 = funcmat.gerarEquacaoG2(coeficientes[0], coeficientes[1], coeficientes[2], coeficientes[3], coeficientes[4], coeficientes[5]);
-            return true; // Conseguiu realizar a translação
+            // Conseguiu realizar a translação, então remover os termos lineares
+            funcmat.setDL(0);
+            funcmat.setEL(0);
+            return true; 
         }
 
-        private void rotacao(bool consegiuTranslacao)
+        private bool rotacao(bool consegiuTranslacao)
         {
+            funcmat.calculaSenCos();
+            if (funcmat.getCotg2teta() == 0 || double.IsNaN(funcmat.getCotg2teta()))
+            {
+                // Se não tem solução não dá para fazer rotação
+                return false;
+            }
             funcmat.calculaAlCl(matrizG2);
-            if(consegiuTranslacao) // Se não tiver D e E não precisa calcular dL e eL
+            if (consegiuTranslacao) // Se não tiver D e E não precisa calcular dL e eL
             {
 
             }
             else
             {
-                // Calcula dL e eL
-                funcmat.calculaSenCos();
+                // Calcula dL e 
                 funcmat.calculaDlEl();
             }
-            matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
-            lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+
+            // Se deu certo o termo quadrático misto é removido
+            funcmat.setBL(0);
+            return true;
         }
 
         private string sinal(double coeficiente)
