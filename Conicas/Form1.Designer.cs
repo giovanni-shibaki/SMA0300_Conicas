@@ -267,9 +267,9 @@
             this.btWebPlot.ForeColor = System.Drawing.Color.White;
             this.btWebPlot.Location = new System.Drawing.Point(26, 291);
             this.btWebPlot.Name = "btWebPlot";
-            this.btWebPlot.Size = new System.Drawing.Size(56, 40);
+            this.btWebPlot.Size = new System.Drawing.Size(99, 40);
             this.btWebPlot.TabIndex = 24;
-            this.btWebPlot.Text = "Plotar";
+            this.btWebPlot.Text = "Plotar Web";
             this.btWebPlot.UseVisualStyleBackColor = false;
             this.btWebPlot.Click += new System.EventHandler(this.btWebPlot_Click);
             // 
