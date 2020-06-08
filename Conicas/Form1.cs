@@ -82,11 +82,13 @@ namespace Conicas
             return true;
         }
 
+        // formatacao de sinal para impressao da equacao inicial no lblEqInicial
         private string sinal(double coeficiente)
         {
             string sinal;
             return sinal = (coeficiente > 0) ? "+" : null;
         }
+        // recebe apenas os coeficientes e imprime na tela a equacao com X,Y formatados corretamente
         private string printEqAtual(double[] coeficientes)
         {
             string ret = null;
@@ -100,6 +102,7 @@ namespace Conicas
             return ret;
         }
 
+        // formata coeficientes de acordo com sintaxe da url do wolframAlpha
         private string wolframFormat(double[] coeficientes)
         {
             string ret = null;
@@ -109,8 +112,7 @@ namespace Conicas
             if (coeficientes[2] != 0) ret += coeficientes[2].ToString() + "y²+%2B+";
             if (coeficientes[3] != 0) ret += coeficientes[3].ToString() + "x+%2B+";
             if (coeficientes[4] != 0) ret += coeficientes[4].ToString() + "y+%2B+";
-            if (coeficientes[5] != 0) ret += coeficientes[5].ToString() + "+%2B+";
-            ret += "=0";
+            if (coeficientes[5] != 0) ret += coeficientes[5].ToString() + "+%3D0";
             return ret;
         }
         #endregion
@@ -121,12 +123,14 @@ namespace Conicas
         {
             try
             {
+                #region settando os campos
                 coeficientes[0] = double.Parse(txtA.Text);
                 coeficientes[1] = double.Parse(txtB.Text);
                 coeficientes[2] = double.Parse(txtC.Text);
                 coeficientes[3] = double.Parse(txtD.Text);
                 coeficientes[4] = double.Parse(txtE.Text);
                 coeficientes[5] = double.Parse(txtF.Text);
+
                 funcmat.setA(coeficientes[0]);
                 funcmat.setB(coeficientes[1]);
                 funcmat.setC(coeficientes[2]);
@@ -139,6 +143,7 @@ namespace Conicas
                 funcmat.setCL(coeficientes[2]);
                 funcmat.setDL(coeficientes[3]);
                 funcmat.setEL(coeficientes[4]);
+                #endregion
 
                 lblEquacaoAtual.Text = printEqAtual(coeficientes);
                 ConicaGraph conica = new ConicaGraph(coeficientes);
@@ -224,6 +229,7 @@ namespace Conicas
             }
         }
 
+        // deixa 0 nos campos de entrada dos coeficientes
         private void btnLimpar(object sender, EventArgs e)
         {
             txtA.Text = "0";
