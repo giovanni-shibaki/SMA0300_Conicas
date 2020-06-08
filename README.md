@@ -112,7 +112,7 @@ PS: all code comments in this project are probably written in Brazilian Portugue
 
 ### Main Menu
 
- In this window the user can enter all the coeficients of a given general conic section equation. By clicking the "Calcular" button, the mathematical algorithm will initiate.
+ In this window the user can enter all the coeficients of a given general conic section equation. By clicking the "Calcular" button, the mathematical algorithm will initiate.The button "Plotar Web" shows the simulation of the given equation on [WolframAlpha](https://www.wolframalpha.com/input/?i=conic+section)
  
 <img src="images/mainMenu.PNG">
 
