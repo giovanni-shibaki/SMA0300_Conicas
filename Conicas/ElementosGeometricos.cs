@@ -132,33 +132,38 @@ namespace Conicas
             string detalhes=null;
 
             // C(X,Y)
+
             double h = funcMat.getH();
             double k = funcMat.getK();
-
+            if (!h.IsFinite() && !h.IsFinite())
+            {
+                h = 0;
+                k = 0;
+            }
             double p;
             double eixo;
             // vamos verificar onde esta o eixo da parabola
 
             // se temos coeficiente de x^2, eixo de simetria em y
-            if (coeficientes[0] != 0)
+            if (coeficientes[2] != 0)
             {
-                p = -(coeficientes[4]);
-                eixo = (coeficientes[4]);
-                detalhes = "\nFoco: F(" + h + "," + (k+p) + ")\n";
-                detalhes += "\nDiretriz r: y=" + (-p);
-                detalhes += "\n Parametro: p=" + p;
-                detalhes += "\nEquacao do eixo: y= " +eixo;
+                p = (coeficientes[4]);
+                eixo = k;
+                detalhes = "\nFoco: F(" + (h+p) + "," + (k) + ")";
+                detalhes += "\nDiretriz r: x= " + (-p);
+                detalhes += "\n Parametro: p= " + p;
+                detalhes += "\nEixo: y= " +eixo;
             }
             // se temos coeficiente de y^2, eixo de simetria em x
-            else if (coeficientes[2] != 0)
+            else if (coeficientes[0] != 0)
             {
-                p = -(coeficientes[3]);
-                eixo = (coeficientes[3]);
+                p = (coeficientes[3]);
+                eixo = h;
 
-                detalhes = "\nFoco: F(" + (h+p) + "," + k  + ")\n";
-                detalhes += "\nDiretriz r: x=" + (-p);
-                detalhes += "\n Parametro: p=" + p;
-                detalhes += "\nEquacao do eixo: x= " + eixo;
+                detalhes = "\nFoco: F(" + (h) + "," + (k+p)  + ")";
+                detalhes += "\nDiretriz r: y= " + (-p);
+                detalhes += "\n Parametro: p= " + p;
+                detalhes += "\nEixo: x= " + eixo;
 
                 //detalhes += "\n Eixo: ";
             }

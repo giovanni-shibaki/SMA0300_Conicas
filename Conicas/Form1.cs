@@ -240,11 +240,10 @@ namespace Conicas
                     }
                 }
                 lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
-            }
-
-            //coeficientes = new_coeficientes();
-            InfoConica info = new InfoConica(coeficientes);
-            info.Show();
+                // colcoa as informacoes para serem processadas pelo form
+                InfoConica info = new InfoConica(coeficientes);
+                info.Show();
+            }      
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
