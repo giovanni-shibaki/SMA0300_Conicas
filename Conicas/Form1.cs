@@ -240,7 +240,7 @@ namespace Conicas
             MessageBox.Show("Trabalho realizado por:\n\nGiovanni Shibaki - 11796444\nPedro Kenzo - 11796451\nBCC 020\n\nMatéria SMA0300 - Geometria Analítica", "Sobre a equipe", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
-
+        // clique do webplot
         private void btWebPlot_Click(object sender, EventArgs e)
         {
             // lendo texto das textboxes
