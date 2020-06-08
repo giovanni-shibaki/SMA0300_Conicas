@@ -152,9 +152,9 @@ namespace Conicas
                 p = (coeficientes[4])/4;
                 eixo = k;
 
-                detalhes = "\nFoco: F(" + (h) + "," + (k + p) + ")";
-                detalhes += "\nDiretriz r: y= " + (-p);
-                detalhes += "\n Parametro: p= " + p;
+                detalhes = "\nFoco: F(" + (h) + "," + (-(k + p)) + ")";
+                detalhes += "\nDiretriz r: y= " + (p);
+                detalhes += "\n Parametro: p= " + (-p);
                 detalhes += "\nEixo: x= " + eixo;
             }
             // se temos coeficiente de y^2, eixo de simetria em x\
@@ -166,9 +166,9 @@ namespace Conicas
                 eixo = h;
 
 
-                detalhes = "\nFoco: F(" + (h + p) + "," + (k) + ")";
-                detalhes += "\nDiretriz r: x= " + (-p);
-                detalhes += "\n Parametro: p= " + p;
+                detalhes = "\nFoco: F(" + (-(h + p)) + "," + (k) + ")";
+                detalhes += "\nDiretriz r: x= " + (p);
+                detalhes += "\n Parametro: p= " + (-p);
                 detalhes += "\nEixo: y= " + eixo;
 
             }
