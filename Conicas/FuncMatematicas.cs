@@ -36,6 +36,7 @@ namespace Conicas
 
         private double sen0;
         private double cos0;
+        private double cotg2teta;
 
         // Conforme notas de aula pag 94
 
@@ -56,6 +57,15 @@ namespace Conicas
         public void setSen(double x)
         {
             this.sen0 = x;
+        }
+
+        public double getCotg2teta()
+        {
+            return this.cotg2teta;
+        }
+        public void setCotg2teta(double x)
+        {
+            this.cotg2teta = x;
         }
 
         public double getCos()
@@ -278,8 +288,33 @@ namespace Conicas
 
 
             //MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
+
+
             
-            
+            double max = getF();
+            /*double []valores =
+            {
+                getAL(), getBL(), getCL(), getDL(), getEL(), getF()
+            };
+            for(int i=0;i<6;i++)
+            {
+                if(valores[i]>max)
+                {
+                    max = valores[i];
+                }
+            }
+            MessageBox.Show("Vetor = " + valores);*/
+            /*double nA, nB, nC, nD, nE; //Denominadores dos termos
+            nA = max / getAL();
+            nB = max / getB();
+            nC = max / getCL();
+            nD = max / getDL();
+            nE = max / getEL();
+            // simplificar a equação
+            MessageBox.Show("Max = " + max);
+            var eq = Infix.ParseOrThrow("u*u/"+nA+ "+u*v/" + nB+ "+v*v/" + nC+ "+u/" + nD+ "+v/" + nE+ "= 1");
+            var expanded = Algebraic.Expand(eq);*/
+
             var eq = Infix.ParseOrThrow(getAL().ToString() + "*u*u+" + getBL().ToString() + "*u*v+" + getCL().ToString() + "*v*v+" + getDL().ToString() + "*u+" + getEL().ToString() + "*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
             MessageBox.Show("Equação Geral: " + Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -292,7 +327,8 @@ namespace Conicas
 
         public void calculaSenCos()
         {
-            double cotg2teta = (getA()-getC()) / getB();
+            cotg2teta = (getA()-getC()) / getB();
+            MessageBox.Show("Cotg2TETA: " + cotg2teta);
             double sen2teta = Math.Pow(Math.Sqrt(1 + Math.Pow((getA() - getC()) / getB(),2)), -1);
             //MessageBox.Show("Cotg2teta = " + cotg2teta);
             //MessageBox.Show("Sen2teta = " + sen2teta);
@@ -337,6 +373,28 @@ namespace Conicas
 
             var eq = Infix.ParseOrThrow(getAL().ToString()+"*u*u+"+getBL().ToString()+"*u*v+"+getCL().ToString()+"*v*v+"+ getDL().ToString()+"*u+"+getEL().ToString()+"*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
+            /*double max = 0;
+            double[] valores =
+            {
+                getAL(), getBL(), getCL(), getDL(), getEL(), getF()
+            };
+            for (int i = 0; i < 6; i++)
+            {
+                if (valores[i] > max)
+                {
+                    max = valores[i];
+                }
+            }
+            double nA, nB, nC, nD, nE, nF; //Denominadores dos termos
+            nA = max / getAL();
+            nB = max / getBL();
+            nC = max / getCL();
+            nD = max / getDL();
+            nE = max / getEL();
+            // simplificar a equação
+            MessageBox.Show("Max = " + max);
+            var eq = Infix.ParseOrThrow("u*u/" + nA + "+u*v/" + nB + "+v*v/" + nC + "+u/" + nD + "+v/" + nE + "= 1");
+            var expanded = Algebraic.Expand(eq);*/
             MessageBox.Show("Equação Geral: "+Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
