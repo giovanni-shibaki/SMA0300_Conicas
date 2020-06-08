@@ -198,8 +198,26 @@ namespace Conicas
                     {
                         if (this.rotacao(false))
                         {
-                            matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), (double)0, funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
+                            funcmat.setBL(0);
+                            matrizG3 = funcmat.gerarEquacaoG2(funcmat.getAL(), funcmat.getBL(), funcmat.getCL(), funcmat.getDL(), funcmat.getEL(), funcmat.getF());
                             lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao2();
+
+                            // Atualizando os coeficientes
+                            coeficientes[0] = funcmat.getAL();
+                            coeficientes[1] = funcmat.getBL();
+                            coeficientes[2] = funcmat.getCL();
+                            coeficientes[3] = funcmat.getDL();
+                            coeficientes[4] = funcmat.getEL();
+                            coeficientes[5] = funcmat.getF();
+                            if (this.translacao())
+                            {
+                                lblEquacaoReduzida.Text = funcmat.mostraNovaEquacao();
+                            }
+                            else
+                            {
+                                // Não conseguiu fazer a translação
+                                MessageBox.Show("Não foi possível realizar a translação após a rotação");
+                            }
                         }
                         else
                         {
