@@ -185,7 +185,7 @@
             // btnCalcula
             // 
             this.btnCalcula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcula.Location = new System.Drawing.Point(373, 358);
+            this.btnCalcula.Location = new System.Drawing.Point(288, 289);
             this.btnCalcula.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(92, 40);
@@ -278,7 +278,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(644, 341);
+            this.ClientSize = new System.Drawing.Size(649, 344);
             this.Controls.Add(this.btWebPlot);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnClear);
