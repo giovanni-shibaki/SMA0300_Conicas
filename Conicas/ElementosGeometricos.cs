@@ -136,23 +136,30 @@ namespace Conicas
             double k = funcMat.getK();
 
             double p;
+            double eixo;
             // vamos verificar onde esta o eixo da parabola
 
             // se temos coeficiente de x^2, eixo de simetria em y
             if (coeficientes[0] != 0)
             {
                 p = -(coeficientes[4]);
-                detalhes= "\nFoco: F(" + h + "," + (k+p) + ")\n";
+                eixo = (coeficientes[4]);
+                detalhes = "\nFoco: F(" + h + "," + (k+p) + ")\n";
                 detalhes += "\nDiretriz r: y=" + (-p);
                 detalhes += "\n Parametro: p=" + p;
+                detalhes += "\nEquacao do eixo: y= " +eixo;
             }
             // se temos coeficiente de y^2, eixo de simetria em x
             else if (coeficientes[2] != 0)
             {
                 p = -(coeficientes[3]);
+                eixo = (coeficientes[3]);
+
                 detalhes = "\nFoco: F(" + (h+p) + "," + k  + ")\n";
                 detalhes += "\nDiretriz r: x=" + (-p);
                 detalhes += "\n Parametro: p=" + p;
+                detalhes += "\nEquacao do eixo: x= " + eixo;
+
                 //detalhes += "\n Eixo: ";
             }
 
