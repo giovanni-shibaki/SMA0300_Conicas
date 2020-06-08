@@ -103,16 +103,28 @@ namespace Conicas
         }
 
         // formata coeficientes de acordo com sintaxe da url do wolframAlpha
-        private string wolframFormat(double[] coeficientes)
+        private string wolframFormat(double[] coeficientes, bool simplified)
         {
             string ret = null;
-
-            if (coeficientes[0] != 0) ret = coeficientes[0].ToString() + "x²+%2B+";
-            if (coeficientes[1] != 0) ret += coeficientes[1].ToString() + "xy+%2B+";
-            if (coeficientes[2] != 0) ret += coeficientes[2].ToString() + "y²+%2B+";
-            if (coeficientes[3] != 0) ret += coeficientes[3].ToString() + "x+%2B+";
-            if (coeficientes[4] != 0) ret += coeficientes[4].ToString() + "y+%2B+";
-            if (coeficientes[5] != 0) ret += coeficientes[5].ToString() + "+%3D0";
+            // formatar para equacao antes de rotacao e translacao
+            if (!simplified) {
+                if (coeficientes[0] != 0) ret = coeficientes[0].ToString() + "x²+%2B+"; // A
+                if (coeficientes[1] != 0) ret += coeficientes[1].ToString() + "xy+%2B+";// B
+                if (coeficientes[2] != 0) ret += coeficientes[2].ToString() + "y²+%2B+";// C
+                if (coeficientes[3] != 0) ret += coeficientes[3].ToString() + "x+%2B+"; // D
+                if (coeficientes[4] != 0) ret += coeficientes[4].ToString() + "y+%2B+"; // E
+                if (coeficientes[5] != 0) ret += coeficientes[5].ToString() + "+%3D0";  // F
+            }
+            // formatar para equacao depois de rotacao e translacao
+            else
+            {
+                if (coeficientes[0] != 0) ret =  funcmat.getAL().ToString() + "u²+%2B+"; // A
+                if (coeficientes[1] != 0) ret += funcmat.getBL().ToString() + "uv+%2B+";// B
+                if (coeficientes[2] != 0) ret += funcmat.getCL().ToString() + "v²+%2B+";// C
+                if (coeficientes[3] != 0) ret += funcmat.getDL().ToString() + "u+%2B+"; // D
+                if (coeficientes[4] != 0) ret += funcmat.getEL().ToString() + "v+%2B+"; // E
+                if (coeficientes[5] != 0) ret += funcmat.getF().ToString() + "+%3D0";  // F
+            }
             return ret;
         }
         #endregion
@@ -217,7 +229,6 @@ namespace Conicas
             info.Show();
         }
 
-
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             var res = MessageBox.Show(this, "Deseja Realmente Sair?", "Sair",
@@ -250,23 +261,44 @@ namespace Conicas
         private void btWebPlot_Click(object sender, EventArgs e)
         {
             // lendo texto das textboxes
-            coeficientes[0] = double.Parse(txtA.Text);
-            coeficientes[1] = double.Parse(txtB.Text);
-            coeficientes[2] = double.Parse(txtC.Text);
-            coeficientes[3] = double.Parse(txtD.Text);
-            coeficientes[4] = double.Parse(txtE.Text);
-            coeficientes[5] = double.Parse(txtF.Text);
+            try
+            {
+                coeficientes[0] = double.Parse(txtA.Text);
+                coeficientes[1] = double.Parse(txtB.Text);
+                coeficientes[2] = double.Parse(txtC.Text);
+                coeficientes[3] = double.Parse(txtD.Text);
+                coeficientes[4] = double.Parse(txtE.Text);
+                coeficientes[5] = double.Parse(txtF.Text);
+            }
+            catch (System.FormatException a)
+            {
+                MessageBox.Show("Erro ao processar os campos!\nMais detalhes: " + a);
+            }
+
 
             //  a url da equacao sera concatenada ao wolfram
             string url;
-            url = "https://www.wolframalpha.com/input/?i=" + wolframFormat(this.coeficientes);
 
             // prodecimento de Dialog Box
             var res = MessageBox.Show(this, "O Navegador padrão aberto será aberto para isso, ok?", "Web Plotting",
             MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (res == DialogResult.OK)
             {
+                // se so temos a equacao inicial
+                MessageBox.Show("Exibindo no browser o gráfico da equação inicial");
+                url = "https://www.wolframalpha.com/input/?i=" + wolframFormat(this.coeficientes,false);
+
                 System.Diagnostics.Process.Start("cmd", "/C start" + " " + url);
+
+                // se temos equacao reduzida
+                if (lblEquacaoReduzida.Text!="")
+                {
+                    MessageBox.Show("Exibindo no browser o gráfico da equação reduzida");
+
+                    url = "https://www.wolframalpha.com/input/?i=" + wolframFormat(this.coeficientes,true);
+                    System.Diagnostics.Process.Start("cmd", "/C start" + " " + url);
+                }
+
             }
         }
         #endregion

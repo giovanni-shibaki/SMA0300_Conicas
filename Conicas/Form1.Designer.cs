@@ -198,7 +198,7 @@
             // btnCalcula
             // 
             this.btnCalcula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcula.Location = new System.Drawing.Point(382, 358);
+            this.btnCalcula.Location = new System.Drawing.Point(373, 358);
             this.btnCalcula.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(123, 49);
