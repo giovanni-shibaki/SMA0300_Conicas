@@ -288,7 +288,33 @@ namespace Conicas
 
 
             //MessageBox.Show("Equação geral: " + aL + "s² + " + cL + "t² - " + aL * cL + " = 0");
-            double div = (double)Euclid.LeastCommonMultiple((long)getAL(), (long)getBL(), (long)getCL(), (long)getDL(), (long)getEL(), (long)getF());
+            double[] num =
+            {
+                getAL(), getBL(), getCL(), getDL(), getEL(), getF()
+            };
+
+            double max = 0;
+            for(int i=0;i<6;i++)
+            {
+                if(num[i]>max)
+                {
+                    max = num[i];
+                }
+            }
+
+            long[] num2 = {
+                (long)max,(long)max,(long)max,(long)max,(long)max,(long)max
+            };
+            int j = 0;
+            for(int i=0;i<6;i++)
+            {
+                if(num[i]!=0)
+                {
+                    num2[j] = (long) num[i];
+                    j++;
+                }
+            }
+            double div = (double)Euclid.GreatestCommonDivisor(num2);
             MessageBox.Show("MMC: " + div);
             if (div != null && div != 0)
             {
@@ -356,7 +382,33 @@ namespace Conicas
         public string mostraNovaEquacao2()
         {
             // O termo independente continua o mesmo pois não foi realizada a translação
-            double div = (double) Euclid.LeastCommonMultiple((long)getAL(), (long)getBL(), (long)getCL(), (long)getDL(), (long)getEL(), (long)getF());
+            double[] num =
+            {
+                getAL(), getBL(), getCL(), getDL(), getEL(), getF()
+            };
+
+            double max = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                if (num[i] > max)
+                {
+                    max = num[i];
+                }
+            }
+
+            long[] num2 = {
+                (long)max,(long)max,(long)max,(long)max,(long)max,(long)max
+            };
+            int j = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                if (num[i] != 0)
+                {
+                    num2[j] = (long)num[i];
+                    j++;
+                }
+            }
+            double div = (double)Euclid.GreatestCommonDivisor(num2);
             MessageBox.Show("MMC: "+div);
             if (div != null && div !=0)
             {
@@ -367,6 +419,7 @@ namespace Conicas
                 setEL(getEL() / div);
                 setF(getF() / div);
             } // Simplifica a equação com o maior divisor entre eles
+
             var eq = Infix.ParseOrThrow(getAL().ToString()+"*u*u+"+getBL().ToString()+"*u*v+"+getCL().ToString()+"*v*v+"+ getDL().ToString()+"*u+"+getEL().ToString()+"*v+"+getF().ToString());
             var expanded = Algebraic.Expand(eq);
             MessageBox.Show("Equação Geral: "+Infix.FormatStrict(expanded), "Equação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
