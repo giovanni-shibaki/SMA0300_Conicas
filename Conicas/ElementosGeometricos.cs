@@ -144,28 +144,33 @@ namespace Conicas
             double eixo;
             // vamos verificar onde esta o eixo da parabola
 
-            // se temos coeficiente de x^2, eixo de simetria em y
-            if (coeficientes[2] != 0)
+            // se temos coeficiente de x^2, eixo de simetria em y    
+            // x^2 = 4py
+            if (coeficientes[0] != 0)
             {
-                p = (coeficientes[4]);
+                // termo linear no ey
+                p = (coeficientes[4])/4;
                 eixo = k;
-                detalhes = "\nFoco: F(" + (h+p) + "," + (k) + ")";
-                detalhes += "\nDiretriz r: x= " + (-p);
-                detalhes += "\n Parametro: p= " + p;
-                detalhes += "\nEixo: y= " +eixo;
-            }
-            // se temos coeficiente de y^2, eixo de simetria em x
-            else if (coeficientes[0] != 0)
-            {
-                p = (coeficientes[3]);
-                eixo = h;
 
-                detalhes = "\nFoco: F(" + (h) + "," + (k+p)  + ")";
+                detalhes = "\nFoco: F(" + (h) + "," + (k + p) + ")";
                 detalhes += "\nDiretriz r: y= " + (-p);
                 detalhes += "\n Parametro: p= " + p;
                 detalhes += "\nEixo: x= " + eixo;
+            }
+            // se temos coeficiente de y^2, eixo de simetria em x\
+            // y^2 = 4px
+            else if (coeficientes[2] != 0)
+            {
+                // termo linear no dx
+                p = (coeficientes[3])/4;
+                eixo = h;
 
-                //detalhes += "\n Eixo: ";
+
+                detalhes = "\nFoco: F(" + (h + p) + "," + (k) + ")";
+                detalhes += "\nDiretriz r: x= " + (-p);
+                detalhes += "\n Parametro: p= " + p;
+                detalhes += "\nEixo: y= " + eixo;
+
             }
 
             return detalhes;
@@ -236,7 +241,7 @@ namespace Conicas
 
             // excentricidade
             double exct; 
-            string detalhes ="Centro: C(" + X + "," + Y + ")";
+            string detalhes ="Centro: C(" + X + "," + Y + ")\n";
 
             // verificando onde esta o eixo maior
             double a = 0; // semi-eixo maior
@@ -254,10 +259,10 @@ namespace Conicas
                 exct = c / a;
                 detalhes += "\nExcentricidade: " + exct;
                 // Focos
-                detalhes += "\nFocos:  F1(" + X + "," + (c + Y) + ") e" + "F2(" + X + ", -" + (c + Y) + ")";
+                detalhes += "\nFocos:  F1(" + X + " , " + (c + Y) + ") e" + "F2(" + X + " , " + (-(c + Y)) + ")";
 
                 // Vertices
-                detalhes += "\nVertices:  V1(" + X + "," + (a + Y) + ") e" + "V2(" + X + ", -" +(a + Y)  + ")";
+                detalhes += "\nVertices:  V1(" + X + " , " + (a + Y) + ") e" + "V2(" + X + " , " +(-(a + Y))  + ")";
 
             }
             // elipse estara deitada no eixo X, pois a>b
@@ -271,10 +276,10 @@ namespace Conicas
                 exct = c /a;
                 detalhes += "Excentricidade: " + exct;
                 // Focos
-                detalhes += "\nFocos:  F1(" + (c+X) + "," + Y + ") e " + "F2( -" + (c+X) + ", " + Y + ")";
+                detalhes += "\nFocos:  F1(" + (c+X) + " , " + Y + ") e " + "F2( " + (-(c+X)) + " , " + Y + ")";
 
                 // Vertices
-                detalhes += "\nVertices:  V1(" + (a+X) + "," + Y + ") e " + "V2( -" + (a + X) + "," + Y + ")";
+                detalhes += "\nVertices:  V1(" + (a+X) + " , " + Y + ") e " + "V2( " + (-(a + X)) + " , " + Y + ")";
             }
             return detalhes;
         }
