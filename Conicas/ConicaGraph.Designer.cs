@@ -36,12 +36,12 @@
             // 
             // btnGraph
             // 
-            this.btnGraph.Location = new System.Drawing.Point(214, 508);
+            this.btnGraph.Location = new System.Drawing.Point(198, 508);
             this.btnGraph.Margin = new System.Windows.Forms.Padding(4);
             this.btnGraph.Name = "btnGraph";
-            this.btnGraph.Size = new System.Drawing.Size(100, 28);
+            this.btnGraph.Size = new System.Drawing.Size(131, 28);
             this.btnGraph.TabIndex = 3;
-            this.btnGraph.Text = "Graph";
+            this.btnGraph.Text = "Plotar Gráfico";
             this.btnGraph.UseVisualStyleBackColor = true;
             this.btnGraph.Click += new System.EventHandler(this.btnGraph_Click);
             // 
