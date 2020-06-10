@@ -33,6 +33,7 @@ namespace Conicas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConicaGraph));
             this.picGraph = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTipoDeGrafico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,15 +62,26 @@ namespace Conicas
             this.panel1.Size = new System.Drawing.Size(508, 460);
             this.panel1.TabIndex = 16;
             // 
+            // lblTipoDeGrafico
+            // 
+            this.lblTipoDeGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.lblTipoDeGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDeGrafico.ForeColor = System.Drawing.Color.White;
+            this.lblTipoDeGrafico.Location = new System.Drawing.Point(170, 32);
+            this.lblTipoDeGrafico.Name = "lblTipoDeGrafico";
+            this.lblTipoDeGrafico.Size = new System.Drawing.Size(351, 25);
+            this.lblTipoDeGrafico.TabIndex = 17;
+            // 
             // ConicaGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 549);
+            this.Controls.Add(this.lblTipoDeGrafico);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConicaGraph";
-            this.Text = "ConicaGraph";
+            this.Text = "Gráfico";
             this.Load += new System.EventHandler(this.ConicaGraph_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -83,5 +95,6 @@ namespace Conicas
         #endregion
         private System.Windows.Forms.PictureBox picGraph;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTipoDeGrafico;
     }
 }

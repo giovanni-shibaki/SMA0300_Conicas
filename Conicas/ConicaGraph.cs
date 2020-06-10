@@ -11,10 +11,11 @@ namespace Conicas
     {
         #region Rod Stephens (the right one)
         double[] coeficientes;
-        public ConicaGraph(double[] coefientes_1)
+        public ConicaGraph(double[] coefientes_1,string qualgrafico)
         {
             InitializeComponent();
             this.coeficientes = coefientes_1;
+            lblTipoDeGrafico.Text = qualgrafico;
         }
 
         // Plot the equations.

@@ -157,8 +157,9 @@ namespace Conicas
                 funcmat.setEL(coeficientes[4]);
                 #endregion
 
+                // Mostrando Grafico ANTES DE ROTACIONAR/TRANSLADAR
                 lblEquacaoAtual.Text = printEqAtual(coeficientes);
-                ConicaGraph conica = new ConicaGraph(coeficientes);
+                ConicaGraph conica = new ConicaGraph(coeficientes,"Equação Inicial");
                 conica.Show();
             }
             catch (System.FormatException a)
@@ -255,6 +256,12 @@ namespace Conicas
             coeficientes[5] = funcmat.getF();
             InfoConica info = new InfoConica(coeficientes);
             info.Show();
+
+            // Mostrando Grafico DEPOIS DE ROTACIONAR/TRANSLADAR
+            lblEquacaoAtual.Text = printEqAtual(coeficientes);
+            ConicaGraph conica2 = new ConicaGraph(coeficientes, "Equação Simplificada");
+            conica2.Show();
+
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
