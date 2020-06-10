@@ -125,7 +125,7 @@ This interface offers additional information about the conic section expressed i
 ### Function Graphing
 By using the collection of functions implemented by [Rod Stephens](http://csharphelper.com/blog/author/rod-stephens/) , this interface displays the conic section function twice: one using only the coeficients before the rotation and translation procedures (form on the left) and the other one after the said process (form on the right).
 
-<img src="images/graph.PNG">
+<img src="images/graphForms.PNG">
 
 
 ## The Team
