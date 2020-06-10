@@ -31,6 +31,7 @@ namespace Conicas
                 gr.Clear(Color.White);
 
                 Rectangle rect = new Rectangle(-10, -10, 20, 20); // function scale
+
                 Point[] pts = new Point[]
                 {
                     new Point(0, picGraph.ClientSize.Height),
@@ -44,7 +45,7 @@ namespace Conicas
                 {
                     gr.DrawLine(axis_pen, -20, 0, 20, 0);
                     gr.DrawLine(axis_pen, 0, -20, 0, 20);
-                    for (int i = -2; i <= 2; i++)
+                    for (int i = -20; i <= 20; i++)// axis bars
                     {
                         gr.DrawLine(axis_pen, i, -0.1f, i, 0.1f);
                         gr.DrawLine(axis_pen, -0.1f, i, 0.1f, i);
@@ -92,7 +93,7 @@ namespace Conicas
         private void PlotFunction(Graphics gr, FofXY func, float dx, float dy)
         {
             // Plot the function.
-            using (Pen thin_pen = new Pen(Color.Black, 0))
+            using (Pen thin_pen = new Pen(Color.Red, 0))
             {
                 // Horizontal comparisons.
                 for (float x = -20f; x <= 20f; x += dx)

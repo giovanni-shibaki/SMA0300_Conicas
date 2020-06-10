@@ -65,9 +65,9 @@ namespace Conicas
             // lblTipoDeGrafico
             // 
             this.lblTipoDeGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.lblTipoDeGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDeGrafico.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoDeGrafico.ForeColor = System.Drawing.Color.White;
-            this.lblTipoDeGrafico.Location = new System.Drawing.Point(170, 32);
+            this.lblTipoDeGrafico.Location = new System.Drawing.Point(122, 39);
             this.lblTipoDeGrafico.Name = "lblTipoDeGrafico";
             this.lblTipoDeGrafico.Size = new System.Drawing.Size(351, 25);
             this.lblTipoDeGrafico.TabIndex = 17;
@@ -81,7 +81,7 @@ namespace Conicas
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConicaGraph";
-            this.Text = "Gráfico";
+            this.Text = "Gráfico da ";
             this.Load += new System.EventHandler(this.ConicaGraph_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -191,7 +191,7 @@ namespace Conicas
             // verificando onde esta o eixo maior
 
             // os focos da hiperbole estarao no eixo X se
-            if (Math.Abs(coeficientes[0]) > Math.Abs(coeficientes[2]))
+            if (Math.Abs(coeficientes[0]) >= Math.Abs(coeficientes[2]))
             {
                 a = Math.Sqrt(Math.Abs(coeficientes[0]));
                 b = Math.Sqrt(Math.Abs(coeficientes[2]));
@@ -199,13 +199,13 @@ namespace Conicas
 
                 // excentricidade
                 exct = c / a;
-                detalhes += "Excentricidade: " + exct;
+                detalhes += "\nExcentricidade: " + exct;
 
                 // Focos
-                detalhes += "Focos:  F1(" + X + "," + (c + Y) + ") e" + "F2(" + X + ", -" + (c + Y) + ")";
+                detalhes += "\nFocos:  F1(" + X + "," + (c + Y) + ") e" + "F2(" + X + ", -" + (c + Y) + ")";
 
                 // Vertices
-                detalhes += "Vertices:  V1(" + X + "," + (a + Y) + ") e" + "V2(" + X + ", -" + (a + Y) + ")";
+                detalhes += "\nVertices:  V1(" + X + "," + (a + Y) + ") e" + "V2(" + X + ", -" + (a + Y) + ")";
 
                 // Assintotas
                 detalhes += "\nAssintotas: y= +" + b + "/" + a + "x ou y= -" + b + "/" + a + "x";
