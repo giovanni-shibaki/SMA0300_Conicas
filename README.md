@@ -106,7 +106,7 @@ PS: all code comments in this project are probably written in Brazilian Portugue
 ### ConicaGraph.cs
 * **Relative Path**: SMA0300_Conicas\Conicas\ConicaGraph.cs
 * **Funcionality**: Draws a conic section from its polynomial equation
-* **Sample**: [This is an adaptation of a polynomial equation drawing software by Rod Stephens](http://csharphelper.com/blog/2014/11/draw-a-conic-section-from-its-polynomial-equation-in-c/)
+* **Sample**: [This is an adaptation of a function graphing software by Rod Stephens](http://csharphelper.com/blog/2014/09/plot-a-heart-shaped-function-in-c/)
 
 ## User Interface Images
 
