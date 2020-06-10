@@ -113,7 +113,7 @@ namespace Conicas
                 if (coeficientes[2] != 0) ret += coeficientes[2].ToString() + "y²+%2B+";// C
                 if (coeficientes[3] != 0) ret += coeficientes[3].ToString() + "x+%2B+"; // D
                 if (coeficientes[4] != 0) ret += coeficientes[4].ToString() + "y+%2B+"; // E
-                if (coeficientes[5] != 0) ret += coeficientes[5].ToString() + "+%3D0";  // F
+                 ret += coeficientes[5].ToString() + "+%3D0";  // F
             }
             // formatar para equacao depois de rotacao e translacao
             else
@@ -123,7 +123,7 @@ namespace Conicas
                 if (coeficientes[2] != 0) ret += funcmat.getCL().ToString() + "v²+%2B+";// C
                 if (coeficientes[3] != 0) ret += funcmat.getDL().ToString() + "u+%2B+"; // D
                 if (coeficientes[4] != 0) ret += funcmat.getEL().ToString() + "v+%2B+"; // E
-                if (coeficientes[5] != 0) ret += funcmat.getF().ToString() + "+%3D0";  // F
+                ret += funcmat.getF().ToString() + "+%3D0";  // F
             }
             return ret;
         }
