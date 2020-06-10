@@ -30,7 +30,7 @@ namespace Conicas
                 // Clear.
                 gr.Clear(Color.White);
 
-                Rectangle rect = new Rectangle(-10, -10, 20, 20); // tamanho da funcao 
+                Rectangle rect = new Rectangle(-10, -10, 20, 20); // function scale
                 Point[] pts = new Point[]
                 {
                     new Point(0, picGraph.ClientSize.Height),
@@ -52,8 +52,8 @@ namespace Conicas
                 }
 
                 // Graph the equations.
-                float dx = 10f / bm.Width;
-                float dy = 10f / bm.Height;
+                float dx = 20f / bm.Width;
+                float dy = 20f / bm.Height;
                 PlotFunction(gr, ConicSection, dx, dy);
             } // using gr.
 
@@ -95,10 +95,10 @@ namespace Conicas
             using (Pen thin_pen = new Pen(Color.Black, 0))
             {
                 // Horizontal comparisons.
-                for (float x = -10f; x <= 10f; x += dx)
+                for (float x = -20f; x <= 20f; x += dx)
                 {
-                    float last_y = func(x, -10f);
-                    for (float y = -10f + dy; y <= 10f; y += dy)
+                    float last_y = func(x, -20f);
+                    for (float y = -20f + dy; y <= 20f; y += dy)
                     {
                         float next_y = func(x, y);
                         if (
@@ -114,10 +114,10 @@ namespace Conicas
                 } // Horizontal comparisons.
 
                 // Vertical comparisons.
-                for (float y = -10f + dy; y <= 10f; y += dy)
+                for (float y = -20f + dy; y <= 20f; y += dy)
                 {
-                    float last_x = func(-10f, y);
-                    for (float x = -10f; x <= 10f; x += dx)
+                    float last_x = func(-20f, y);
+                    for (float x = -20f; x <= 20f; x += dx)
                     {
                         float next_x = func(x, y);
                         if (
