@@ -9,6 +9,7 @@ namespace Conicas
 {
     public partial class ConicaGraph : MaterialForm
     {
+        #region Rod Stephens (the right one)
         double[] coeficientes;
         public ConicaGraph(double[] coefientes_1)
         {
@@ -16,195 +17,124 @@ namespace Conicas
             this.coeficientes = coefientes_1;
         }
 
-        // Scalling coeficients
-        private double scale_coeficient(double num)
+        // Plot the equations.
+        private void ConicaGraph_Load_1(object sender, EventArgs e)
         {
+            // Calculating
 
-            return num;
-        }
-
-        // Draw the graph.
-        private void btnGraph_Click(object sender, EventArgs e)
-        {
-            DrawGraph();
-        }
-
-        // Draw the graph.
-        private void DrawGraph()
-        {
-            Bitmap bm = new Bitmap(
-                picGraph.ClientSize.Width,
-                picGraph.ClientSize.Height);
+            // Make the Bitmap.
+            Bitmap bm = new Bitmap(picGraph.ClientSize.Width, picGraph.ClientSize.Height);
             using (Graphics gr = Graphics.FromImage(bm))
             {
-                gr.Clear(picGraph.BackColor);
-                gr.SmoothingMode = SmoothingMode.AntiAlias;
+                // Clear.
+                gr.Clear(Color.White);
 
-                // Get the parameters.
-                float A, B, C, D, E, F;
-                try
+                Rectangle rect = new Rectangle(-10, -10, 20, 20); // tamanho da funcao 
+                Point[] pts = new Point[]
                 {
-                    A = (float)coeficientes[0];
-                    B = (float)coeficientes[1];
-                    C = (float)coeficientes[2];
-                    D = (float)coeficientes[3];
-                    E = (float)coeficientes[4];
-                    F = (float)coeficientes[5];
+                    new Point(0, picGraph.ClientSize.Height),
+                    new Point(picGraph.ClientSize.Width, picGraph.ClientSize.Height),
+                    new Point(0, 0)
+                };
+                gr.Transform = new Matrix(rect, pts);
 
-                    //A = (float)-0.002936807;
-                    //B = (float)-0.001556237;
-                    //C = (float)0.008451099;
-                    //D = (float)0.9999999;
-                    //E = (float)-1.415946;
-                    //F = (float)-0.3586201;
-                }
-                catch (Exception ex)
+                // Draw axes.
+                using (Pen axis_pen = new Pen(Color.Gray, 0))
                 {
-                    MessageBox.Show("Error reading parameters.\n" + ex.Message);
-                    return;
+                    gr.DrawLine(axis_pen, -20, 0, 20, 0);
+                    gr.DrawLine(axis_pen, 0, -20, 0, 20);
+                    for (int i = -2; i <= 2; i++)
+                    {
+                        gr.DrawLine(axis_pen, i, -0.1f, i, 0.1f);
+                        gr.DrawLine(axis_pen, -0.1f, i, 0.1f, i);
+                    }
                 }
 
-                DrawConicSection(gr, A, B, C, D, E, F);
-            }
+                // Graph the equations.
+                float dx = 10f / bm.Width;
+                float dy = 10f / bm.Height;
+                PlotFunction(gr, ConicSection, dx, dy);
+            } // using gr.
 
             // Display the result.
             picGraph.Image = bm;
         }
-
-        // Draw the conic section.
-        private void DrawConicSection(Graphics gr,
-            float A, float B, float C, float D, float E, float F)
+        // The function.
+        private float HeartFunc(float x, float y)
         {
-            // Get the X coordinate bounds.
-            float xmin = 0;
-            float xmax = xmin + picGraph.ClientSize.Width;
+            double a = x * x;
+            double b = y - Math.Pow(x * x, (double)1 / 3);
+            return (float)(a + b * b - 1);
+        }
 
-            // Find the smallest X coordinate with a real value.
-            for (float x = xmin; x < xmax; x++)
+        // The function 2.
+        private float ConicSection(float x, float y)
+        {
+            double a, b, c, d, e, f;
+
+            a = coeficientes[0] * Math.Pow(x, 2); // ax^2
+            b = coeficientes[1] * x * y;// bxy
+            c = coeficientes[2] * Math.Pow(y, 2);
+            d = coeficientes[3] * x;
+            e = coeficientes[4] * y;
+            f = coeficientes[5];
+
+            return (float)(a + b + c + d + e + f);
+
+        }
+
+
+
+        private delegate float FofXY(float x, float y);
+
+        // Plot a function.
+        private void PlotFunction(Graphics gr, FofXY func, float dx, float dy)
+        {
+            // Plot the function.
+            using (Pen thin_pen = new Pen(Color.Black, 0))
             {
-                float y = G1(x, A, B, C, D, E, F, -1f);
-                if (IsNumber(y))
+                // Horizontal comparisons.
+                for (float x = -10f; x <= 10f; x += dx)
                 {
-                    xmin = x;
-                    break;
-                }
-            }
-
-            // Find the largest X coordinate with a real value.
-            for (float x = xmax; x > xmin; x--)
-            {
-                float y = G1(x, A, B, C, D, E, F, -1f);
-                if (IsNumber(y))
-                {
-                    xmax = x;
-                    break;
-                }
-            }
-
-            // Get points for the negative root on the left.
-            List<PointF> ln_points = new List<PointF>();
-            float xmid1 = xmax;
-            for (float x = xmin; x < xmax; x++)
-            {
-                float y = G1(x, A, B, C, D, E, F, -1f);
-                if (!IsNumber(y))
-                {
-                    xmid1 = x - 1;
-                    break;
-                }
-                ln_points.Add(new PointF(x, y));
-            }
-
-            // Get points for the positive root on the left.
-            List<PointF> lp_points = new List<PointF>();
-            for (float x = xmid1; x >= xmin; x--)
-            {
-                float y = G1(x, A, B, C, D, E, F, +1f);
-                if (IsNumber(y)) lp_points.Add(new PointF(x, y));
-            }
-
-            // Make the curves on the right if needed.
-            List<PointF> rp_points = new List<PointF>();
-            List<PointF> rn_points = new List<PointF>();
-            float xmid2 = xmax;
-            if (xmid1 < xmax)
-            {
-                // Get points for the positive root on the right.
-                for (float x = xmax; x > xmid1; x--)
-                {
-                    float y = G1(x, A, B, C, D, E, F, +1f);
-                    if (!IsNumber(y))
+                    float last_y = func(x, -10f);
+                    for (float y = -10f + dy; y <= 10f; y += dy)
                     {
-                        xmid2 = x + 1;
-                        break;
+                        float next_y = func(x, y);
+                        if (
+                            ((last_y <= 0f) && (next_y >= 0f)) ||
+                            ((last_y >= 0f) && (next_y <= 0f))
+                           )
+                        {
+                            // Plot this point.
+                            gr.DrawLine(thin_pen, x, y - dy, x, y);
+                        }
+                        last_y = next_y;
                     }
-                    rp_points.Add(new PointF(x, y));
-                }
+                } // Horizontal comparisons.
 
-                // Get points for the negative root on the right.
-                for (float x = xmid2; x <= xmax; x++)
+                // Vertical comparisons.
+                for (float y = -10f + dy; y <= 10f; y += dy)
                 {
-                    float y = G1(x, A, B, C, D, E, F, -1f);
-                    if (IsNumber(y)) rn_points.Add(new PointF(x, y));
-                }
-            }
-
-            // Connect curves if appropriate.
-            // Connect the left curves on the left.
-            if (xmin > 0) lp_points.Add(ln_points[0]);
-
-            // Connect the left curves on the right.
-            if (xmid1 < picGraph.ClientSize.Width) ln_points.Add(lp_points[0]);
-
-            // Make sure we have the right curves.
-            if (rp_points.Count > 0)
-            {
-                // Connect the right curves on the left.
-                rp_points.Add(rn_points[0]);
-
-                // Connect the right curves on the right.
-                if (xmax < picGraph.ClientSize.Width) rn_points.Add(rp_points[0]);
-            }
-
-            // Draw the curves.
-            using (Pen thick_pen = new Pen(Color.Red, 2))
-            {
-                thick_pen.Color = Color.Red;
-                if (ln_points.Count > 1)
-                    gr.DrawLines(thick_pen, ln_points.ToArray());
-
-                thick_pen.Color = Color.Green;
-                if (lp_points.Count > 1)
-                    gr.DrawLines(thick_pen, lp_points.ToArray());
-
-                thick_pen.Color = Color.Blue;
-                if (rp_points.Count > 1)
-                    gr.DrawLines(thick_pen, rp_points.ToArray());
-
-                thick_pen.Color = Color.Orange;
-                if (rn_points.Count > 1)
-                    gr.DrawLines(thick_pen, rn_points.ToArray());
-            }
+                    float last_x = func(-10f, y);
+                    for (float x = -10f; x <= 10f; x += dx)
+                    {
+                        float next_x = func(x, y);
+                        if (
+                            ((last_x <= 0f) && (next_x >= 0f)) ||
+                            ((last_x >= 0f) && (next_x <= 0f))
+                           )
+                        {
+                            // Plot this point.
+                            gr.DrawLine(thin_pen, x - dx, y, x, y);
+                        }
+                        last_x = next_x;
+                    }
+                } // Vertical comparisons.
+            } // using thin_pen.
         }
+        #endregion
 
-        // Calculate G1(x).
-        // root_sign is -1 or 1.
-        private float G1(float x, float A, float B, float C, float D, float E, float F, float root_sign)
-        {
-            float result = B * x + E;
-            result = result * result;
-            result = result - 4 * C * (A * x * x + D * x + F);
-            result = root_sign * (float)Math.Sqrt(result);
-            result = -(B * x + E) + result;
-            result = result / 2 / C;
-
-            return result;
-        }
-
-        // Return true if the number is not infinity or NaN.
-        private bool IsNumber(float number)
-        {
-            return !(float.IsNaN(number) || float.IsInfinity(number));
-        }
+      
     }
+
 }

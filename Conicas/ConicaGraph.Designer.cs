@@ -1,4 +1,6 @@
-﻿namespace Conicas
+﻿using System;
+
+namespace Conicas
 {
     partial class ConicaGraph
     {
@@ -29,53 +31,57 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConicaGraph));
-            this.btnGraph = new System.Windows.Forms.Button();
             this.picGraph = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnGraph
-            // 
-            this.btnGraph.Location = new System.Drawing.Point(198, 508);
-            this.btnGraph.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGraph.Name = "btnGraph";
-            this.btnGraph.Size = new System.Drawing.Size(131, 28);
-            this.btnGraph.TabIndex = 3;
-            this.btnGraph.Text = "Plotar Gráfico";
-            this.btnGraph.UseVisualStyleBackColor = true;
-            this.btnGraph.Click += new System.EventHandler(this.btnGraph_Click);
             // 
             // picGraph
             // 
-            this.picGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.picGraph.BackColor = System.Drawing.Color.White;
             this.picGraph.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picGraph.Location = new System.Drawing.Point(13, 77);
+            this.picGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picGraph.Location = new System.Drawing.Point(0, 0);
             this.picGraph.Margin = new System.Windows.Forms.Padding(4);
             this.picGraph.Name = "picGraph";
-            this.picGraph.Size = new System.Drawing.Size(507, 423);
+            this.picGraph.Size = new System.Drawing.Size(508, 460);
             this.picGraph.TabIndex = 15;
             this.picGraph.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.picGraph);
+            this.panel1.Location = new System.Drawing.Point(13, 77);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(508, 460);
+            this.panel1.TabIndex = 16;
             // 
             // ConicaGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 549);
-            this.Controls.Add(this.picGraph);
-            this.Controls.Add(this.btnGraph);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConicaGraph";
             this.Text = "ConicaGraph";
+            this.Load += new System.EventHandler(this.ConicaGraph_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
+        
+
         #endregion
-        private System.Windows.Forms.Button btnGraph;
         private System.Windows.Forms.PictureBox picGraph;
+        private System.Windows.Forms.Panel panel1;
     }
 }

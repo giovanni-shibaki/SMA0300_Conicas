@@ -135,7 +135,7 @@ namespace Conicas
 
             double h = funcMat.getH();
             double k = funcMat.getK();
-            if (!h.IsFinite() && !k.IsFinite())
+            if (!h.IsFinite() || !k.IsFinite())
             {
                 h = 0;
                 k = 0;
