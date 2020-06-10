@@ -9,7 +9,7 @@ In order to execute Linear algebra operations involving matrices, we used MathNe
 Due to the fact that this application is based on Winforms C#, it can only run in a Windows-based environment. If on windows, just clone this repository and run the project on Visual Studio 2019 (preferably). If you just want to see the software running, search for its .exe file at SMA0300_Conicas\Conicas\bin\Debug\Conicas.exe
 
 ## Most important pieces of code
-PS: all code comments in this project are probably written in Brazilian Portuguese. For any questions regarding the software, don't hesitate to contact me or [giovanni-shibaki](https://github.com/giovanni-shibaki)
+PS: all code comments in this project are probably written in Brazilian Portuguese. For any questions regarding the software, don't hesitate to contact [Muramatsu2602](https://github.com/Muramatsu2602) or [giovanni-shibaki](https://github.com/giovanni-shibaki)
 
 ### FuncMatematicas.cs
 
@@ -112,7 +112,7 @@ PS: all code comments in this project are probably written in Brazilian Portugue
 
 ### Main Menu
 
- In this window the user can enter all the coeficients of a given general conic section equation. By clicking the "Calcular" button, the mathematical algorithm will initiate.
+ In this window the user can enter all the coeficients of a given general conic section equation. By clicking the "Calcular" button, the mathematical algorithm will initiate.The button "Plotar Web" shows the simulation of the given equation on [WolframAlpha](https://www.wolframalpha.com/input/?i=conic+section)
  
 <img src="images/mainMenu.PNG">
 
