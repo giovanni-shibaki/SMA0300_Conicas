@@ -48,9 +48,9 @@
             // 
             this.lblClassificacao.BackColor = System.Drawing.SystemColors.Control;
             this.lblClassificacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassificacao.Location = new System.Drawing.Point(206, 82);
+            this.lblClassificacao.Location = new System.Drawing.Point(197, 82);
             this.lblClassificacao.Name = "lblClassificacao";
-            this.lblClassificacao.Size = new System.Drawing.Size(584, 26);
+            this.lblClassificacao.Size = new System.Drawing.Size(593, 26);
             this.lblClassificacao.TabIndex = 1;
             this.lblClassificacao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

@@ -27,6 +27,7 @@ namespace Conicas
         public MainMenu()
         {
             InitializeComponent();
+            txtA.Focus();
         }
 
 
