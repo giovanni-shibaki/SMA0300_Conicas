@@ -57,8 +57,8 @@ namespace Conicas
                 // controls pixel density of graph
                 // 100f --> less pixels than 10f
                 // ATTENTION: slows proccessing down
-                float dx = 10f / bm.Width;
-                float dy = 10f / bm.Height;
+                float dx = 8f / bm.Width;
+                float dy = 8f / bm.Height;
                 PlotFunction(gr, ConicSection, dx, dy);
             } // using gr.
 
@@ -97,8 +97,8 @@ namespace Conicas
                     {
                         float next_y = func(x, y);
                         if (
-                            ((last_y <= 0.001f) && (next_y >= 0.001f)) ||
-                            ((last_y >= 0.001f) && (next_y <= 0.001f))
+                            ((last_y <= 0.01f) && (next_y >= 0.01f)) ||
+                            ((last_y >= 0.01f) && (next_y <= 0.01f))
                            )
                         {
                             // Plot this point.
@@ -116,8 +116,8 @@ namespace Conicas
                     {
                         float next_x = func(x, y);
                         if (
-                            ((last_x <= 0.001f) && (next_x >= 0.001f)) ||
-                            ((last_x >= 0.001f) && (next_x <= 0.001f))
+                            ((last_x <= 0.01f) && (next_x >= 0.01f)) ||
+                            ((last_x >= 0.01f) && (next_x <= 0.01f))
                            )
                         {
                             // Plot this point.
