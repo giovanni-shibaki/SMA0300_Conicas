@@ -86,7 +86,6 @@ namespace Conicas
             f = coeficientes[5];
 
             return (float)(a + b + c + d + e + f);
-
         }
 
 
@@ -107,8 +106,8 @@ namespace Conicas
                     {
                         float next_y = func(x, y);
                         if (
-                            ((last_y <= 0f) && (next_y >= 0f)) ||
-                            ((last_y >= 0f) && (next_y <= 0f))
+                            ((last_y <= 0.001f) && (next_y >= 0.001f)) ||
+                            ((last_y >= 0.001f) && (next_y <= 0.001f))
                            )
                         {
                             // Plot this point.
@@ -126,8 +125,8 @@ namespace Conicas
                     {
                         float next_x = func(x, y);
                         if (
-                            ((last_x <= 0f) && (next_x >= 0f)) ||
-                            ((last_x >= 0f) && (next_x <= 0f))
+                            ((last_x <= 0.001f) && (next_x >= 0.001f)) ||
+                            ((last_x >= 0.001f) && (next_x <= 0.001f))
                            )
                         {
                             // Plot this point.
