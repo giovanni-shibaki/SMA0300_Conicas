@@ -30,8 +30,8 @@ namespace Conicas
                 // Clear.
                 gr.Clear(Color.White);
 
-                //Rectangle rect = new Rectangle(-10, -10, 20, 20); // function scale
-                Rectangle rect = new Rectangle(-5, -5, 10, 10); // function scale
+                //Rectangle rect = new Rectangle(-10, -10, 20, 20); // Smaller function scale
+                Rectangle rect = new Rectangle(-5, -5, 10, 10); // Bigger scale
 
                 Point[] pts = new Point[]
                 {
@@ -48,8 +48,8 @@ namespace Conicas
                     gr.DrawLine(axis_pen, 0, -20, 0, 20);
                     for (int i = -20; i <= 20; i++)// axis bars
                     {
-                        gr.DrawLine(axis_pen, i, -0.1f, i, 0.1f);
-                        gr.DrawLine(axis_pen, -0.1f, i, 0.1f, i);
+                        gr.DrawLine(axis_pen, i, -0.07f, i, 0.07f);
+                        gr.DrawLine(axis_pen, -0.07f, i, 0.07f, i);
                     }
                 }
 
