@@ -65,13 +65,6 @@ namespace Conicas
             // Display the result.
             picGraph.Image = bm;
         }
-        // The function.
-        private float HeartFunc(float x, float y)
-        {
-            double a = x * x;
-            double b = y - Math.Pow(x * x, (double)1 / 3);
-            return (float)(a + b * b - 1);
-        }
 
         // The function 2.
         private float ConicSection(float x, float y)
@@ -86,10 +79,7 @@ namespace Conicas
             f = coeficientes[5];
 
             return (float)(a + b + c + d + e + f);
-
         }
-
-
 
         private delegate float FofXY(float x, float y);
 
@@ -107,8 +97,8 @@ namespace Conicas
                     {
                         float next_y = func(x, y);
                         if (
-                            ((last_y <= 0f) && (next_y >= 0f)) ||
-                            ((last_y >= 0f) && (next_y <= 0f))
+                            ((last_y <= 0.001f) && (next_y >= 0.001f)) ||
+                            ((last_y >= 0.001f) && (next_y <= 0.001f))
                            )
                         {
                             // Plot this point.
@@ -126,8 +116,8 @@ namespace Conicas
                     {
                         float next_x = func(x, y);
                         if (
-                            ((last_x <= 0f) && (next_x >= 0f)) ||
-                            ((last_x >= 0f) && (next_x <= 0f))
+                            ((last_x <= 0.001f) && (next_x >= 0.001f)) ||
+                            ((last_x >= 0.001f) && (next_x <= 0.001f))
                            )
                         {
                             // Plot this point.
