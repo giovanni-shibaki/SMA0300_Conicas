@@ -30,7 +30,8 @@ namespace Conicas
                 // Clear.
                 gr.Clear(Color.White);
 
-                Rectangle rect = new Rectangle(-10, -10, 20, 20); // function scale
+                //Rectangle rect = new Rectangle(-10, -10, 20, 20); // function scale
+                Rectangle rect = new Rectangle(-5, -5, 10, 10); // function scale
 
                 Point[] pts = new Point[]
                 {
@@ -53,8 +54,11 @@ namespace Conicas
                 }
 
                 // Graph the equations.
-                float dx = 20f / bm.Width;
-                float dy = 20f / bm.Height;
+                // controls pixel density of graph
+                // 100f --> less pixels than 10f
+                // ATTENTION: slows proccessing down
+                float dx = 10f / bm.Width;
+                float dy = 10f / bm.Height;
                 PlotFunction(gr, ConicSection, dx, dy);
             } // using gr.
 

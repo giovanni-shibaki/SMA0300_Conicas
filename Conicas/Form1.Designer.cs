@@ -68,7 +68,7 @@
             // 
             this.txtA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtA.Location = new System.Drawing.Point(131, 158);
-            this.txtA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtA.Margin = new System.Windows.Forms.Padding(4);
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(35, 27);
             this.txtA.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             this.txtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtB.Location = new System.Drawing.Point(223, 158);
-            this.txtB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtB.Margin = new System.Windows.Forms.Padding(4);
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(35, 27);
             this.txtB.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             this.txtF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtF.Location = new System.Drawing.Point(601, 158);
-            this.txtF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtF.Margin = new System.Windows.Forms.Padding(4);
             this.txtF.Name = "txtF";
             this.txtF.Size = new System.Drawing.Size(35, 27);
             this.txtF.TabIndex = 6;
@@ -121,7 +121,7 @@
             // 
             this.txtE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtE.Location = new System.Drawing.Point(503, 158);
-            this.txtE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtE.Margin = new System.Windows.Forms.Padding(4);
             this.txtE.Name = "txtE";
             this.txtE.Size = new System.Drawing.Size(35, 27);
             this.txtE.TabIndex = 5;
@@ -143,7 +143,7 @@
             // 
             this.txtD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtD.Location = new System.Drawing.Point(411, 158);
-            this.txtD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtD.Margin = new System.Windows.Forms.Padding(4);
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(35, 27);
             this.txtD.TabIndex = 4;
@@ -165,7 +165,7 @@
             // 
             this.txtC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtC.Location = new System.Drawing.Point(317, 158);
-            this.txtC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtC.Margin = new System.Windows.Forms.Padding(4);
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(35, 27);
             this.txtC.TabIndex = 3;
@@ -199,7 +199,7 @@
             // 
             this.btnCalcula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcula.Location = new System.Drawing.Point(395, 368);
-            this.btnCalcula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalcula.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcula.Name = "btnCalcula";
             this.btnCalcula.Size = new System.Drawing.Size(123, 49);
             this.btnCalcula.TabIndex = 15;
@@ -211,7 +211,7 @@
             // 
             this.lblEquacaoAtualTexto.AutoSize = true;
             this.lblEquacaoAtualTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquacaoAtualTexto.Location = new System.Drawing.Point(91, 233);
+            this.lblEquacaoAtualTexto.Location = new System.Drawing.Point(92, 233);
             this.lblEquacaoAtualTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEquacaoAtualTexto.Name = "lblEquacaoAtualTexto";
             this.lblEquacaoAtualTexto.Size = new System.Drawing.Size(146, 25);
@@ -235,7 +235,7 @@
             this.lblEquacaoAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquacaoAtual.Location = new System.Drawing.Point(275, 234);
             this.lblEquacaoAtual.Name = "lblEquacaoAtual";
-            this.lblEquacaoAtual.Size = new System.Drawing.Size(368, 26);
+            this.lblEquacaoAtual.Size = new System.Drawing.Size(534, 26);
             this.lblEquacaoAtual.TabIndex = 19;
             this.lblEquacaoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -245,7 +245,7 @@
             this.lblEquacaoReduzida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquacaoReduzida.Location = new System.Drawing.Point(276, 287);
             this.lblEquacaoReduzida.Name = "lblEquacaoReduzida";
-            this.lblEquacaoReduzida.Size = new System.Drawing.Size(368, 26);
+            this.lblEquacaoReduzida.Size = new System.Drawing.Size(533, 26);
             this.lblEquacaoReduzida.TabIndex = 21;
             this.lblEquacaoReduzida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -253,7 +253,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.Location = new System.Drawing.Point(35, 148);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 49);
             this.btnClear.TabIndex = 22;
@@ -267,7 +267,7 @@
             this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnInfo.Location = new System.Drawing.Point(811, 385);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(79, 32);
             this.btnInfo.TabIndex = 23;
@@ -281,7 +281,7 @@
             this.btWebPlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btWebPlot.ForeColor = System.Drawing.Color.White;
             this.btWebPlot.Location = new System.Drawing.Point(16, 378);
-            this.btWebPlot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btWebPlot.Margin = new System.Windows.Forms.Padding(4);
             this.btWebPlot.Name = "btWebPlot";
             this.btWebPlot.Size = new System.Drawing.Size(121, 39);
             this.btWebPlot.TabIndex = 24;
@@ -317,10 +317,10 @@
             this.Controls.Add(this.txtA);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainMenu";
+            this.Text = "Conic Section Simplifier 1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

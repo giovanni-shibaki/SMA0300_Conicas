@@ -65,9 +65,9 @@ namespace Conicas
             // lblTipoDeGrafico
             // 
             this.lblTipoDeGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.lblTipoDeGrafico.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDeGrafico.Font = new System.Drawing.Font("Noto Mono", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoDeGrafico.ForeColor = System.Drawing.Color.White;
-            this.lblTipoDeGrafico.Location = new System.Drawing.Point(122, 39);
+            this.lblTipoDeGrafico.Location = new System.Drawing.Point(122, 43);
             this.lblTipoDeGrafico.Name = "lblTipoDeGrafico";
             this.lblTipoDeGrafico.Size = new System.Drawing.Size(351, 25);
             this.lblTipoDeGrafico.TabIndex = 17;
