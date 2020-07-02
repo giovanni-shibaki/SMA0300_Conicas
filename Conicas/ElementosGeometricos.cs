@@ -289,7 +289,11 @@ namespace Conicas
             // coordenadas do centro
             double h = funcMat.getH();
             double k = funcMat.getK();
-
+            if (!h.IsFinite() || !k.IsFinite())
+            {
+                h = 0;
+                k = 0;
+            }
             // coordenadas de dx e ey
             double x = funcMat.getAL();
             double y = funcMat.getCL();
