@@ -294,6 +294,7 @@ namespace Conicas
                 h = 0;
                 k = 0;
             }
+
             // coordenadas de dx e ey
             double x = funcMat.getAL();
             double y = funcMat.getCL();
